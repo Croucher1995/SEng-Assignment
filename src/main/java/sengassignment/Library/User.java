@@ -23,10 +23,10 @@ public class User {
 
 //to initialise
     public User(){
-        name = "";
-        surname = "";
-        town = "";
-        email_address = "";
+        name = "ANDRE";
+        surname = "CROUCH";
+        town = "RABAT";
+        email_address = "acrouch@gmail.com";
     }
 
     public User(String name, String surname, String town, String email_address){

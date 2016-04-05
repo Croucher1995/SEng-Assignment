@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  * @author Caroline
  */
 public class UserTest {
-    
+    User u = new User();
     public UserTest() {
     }
     
@@ -36,10 +36,27 @@ public class UserTest {
     @After
     public void tearDown() {
     }
+    
+    @Test
+    public void testGetUserName() {
+        Assert.assertEquals("ANDRE",b.getUserName());
+    }
+    
+    @Test
+    public void testGetUserSurname() {
+        Assert.assertEquals("CROUCH",b.getUserSurname());
+    }
+    
+    
+    @Test
+    public void testGetUserTown() {
+        Assert.assertEquals("RABAT",b.getUserTown());
+    }
+    
+    
+    @Test
+    public void testGetUserEmail() {
+        Assert.assertEquals("acrouch@gmail.com",b.getUserEmail());
+    }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }
