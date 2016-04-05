@@ -1,24 +1,19 @@
 package Tests;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
+import sengassignment.Library.Book;
 
 /**
  *
  * @author Caroline
  */
 public class BookTest {
-    
+    Book b = new Book();
     public BookTest() {
     }
     
@@ -38,9 +33,8 @@ public class BookTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void testGetTitle() {
+        Assert.assertEquals("BOOK",b.getBookTitle());
+    }
 }
