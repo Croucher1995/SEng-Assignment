@@ -7,10 +7,12 @@ package Tests;
 
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import sengassignment.Library.User;
 
 /**
  *
@@ -39,24 +41,24 @@ public class UserTest {
     
     @Test
     public void testGetUserName() {
-        Assert.assertEquals("ANDRE",b.getUserName());
+        Assert.assertEquals("ANDRE",u.getUserName());
     }
     
     @Test
     public void testGetUserSurname() {
-        Assert.assertEquals("CROUCH",b.getUserSurname());
+        Assert.assertEquals("CROUCH",u.getUserSurname());
     }
     
     
     @Test
     public void testGetUserTown() {
-        Assert.assertEquals("RABAT",b.getUserTown());
+        Assert.assertEquals("RABAT",u.getUserTown());
     }
     
     
     @Test
     public void testGetUserEmail() {
-        Assert.assertEquals("acrouch@gmail.com",b.getUserEmail());
+        Assert.assertEquals("acrouch@gmail.com",u.getUserEmail());
     }
 
 }
