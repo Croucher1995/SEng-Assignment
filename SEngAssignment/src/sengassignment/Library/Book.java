@@ -18,8 +18,8 @@ public class Book {
     
     //to initialise 
     public Book(){
-        title = "BOOK";
-        author = ""; 
+        title = "";
+        author = "ABC"; 
         genre = "";
         year = 0;
         edition = 0;  

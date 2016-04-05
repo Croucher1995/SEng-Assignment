@@ -35,6 +35,11 @@ public class BookTest {
 
     @Test
     public void testGetTitle() {
-        Assert.assertEquals("BOOK",b.getBookTitle());
+        Assert.assertEquals("",b.getBookTitle());
+    }
+    
+    @Test
+    public void testGetAuthor() {
+        Assert.assertEquals("ABC",b.getBookAuthor());
     }
 }
