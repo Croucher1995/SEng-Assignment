@@ -8,9 +8,11 @@ package sengassignment.Library;
 public class Genre {
 
     private String type;
+    private String genre_description;
     
     public Genre(){
-        type = "";
+        type = "FICTION";
+        genre_description = "A STORY FILLED WITH IMAGINATION";
     }
     
     public Genre(String type){
@@ -19,5 +21,9 @@ public class Genre {
     
     public String getType(){
         return this.type;
+    }
+    
+    public String getGenre_Description(){
+        return this.genre_description;
     }
 }

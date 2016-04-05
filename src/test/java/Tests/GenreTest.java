@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  * @author Caroline
  */
 public class GenreTest {
-    
+    Genre g = new Genre();
     public GenreTest() {
     }
     
@@ -37,6 +37,15 @@ public class GenreTest {
     public void tearDown() {
     }
 
+    @Test
+    public void testGetType() {
+        Assert.assertEquals("FICTION",g.getType());
+    }
+    
+    @Test
+    public void testGere_Description() {
+        Assert.assertEquals("A STORY FILLED WITH IMAGINATION",g.getGenre_Description());
+    }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
