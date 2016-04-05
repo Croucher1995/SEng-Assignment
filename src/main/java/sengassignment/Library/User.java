@@ -19,7 +19,7 @@ public class User {
     private String email_address;
     private UUID ID;
   
-}
+
 
 //to initialise
     public User(){
@@ -29,7 +29,7 @@ public class User {
         email_address = "";
     }
 
-    public Book(String name, String surname, String town, String email_address){
+    public User(String name, String surname, String town, String email_address){
         this.name = name;
         this.surname = surname;
         this.town = town;
@@ -54,7 +54,7 @@ public class User {
         return this.town;
     }
 
-    public int getUserEmail(){
+    public String getUserEmail(){
         return this.email_address;
     }
-
+}
