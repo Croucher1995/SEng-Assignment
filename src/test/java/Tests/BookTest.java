@@ -8,10 +8,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import sengassignment.Library.Book;
 
-/**
- *
- * @author Caroline
- */
 public class BookTest {
     Book b = new Book();
     public BookTest() {
