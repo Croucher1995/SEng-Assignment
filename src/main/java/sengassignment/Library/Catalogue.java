@@ -27,30 +27,33 @@ public class Catalogue {
 
     }
     
-    public String searchByTitle(String names){
+    public ArrayList searchByTitle(String names){
+        ArrayList<Book> temp = new ArrayList<>();   
         for (Book book_name : book_names) {
             if ((book_name.getBookTitle()).contains(names)) {
-                return book_name.getBookTitle();
+                temp.add(book_name);
             }
         }
-        return "";
+        return temp;
     }
     
-    public String searchByGenre(String names){
+    public ArrayList searchByGenre(String names){
+        ArrayList<Book> temp = new ArrayList<>();   
         for (Book book_name : book_names) {
             if ((book_name.getBookGenre()).contains(names)) {
-                return book_name.getBookTitle();
+                temp.add(book_name);
             }
         }
-        return "";
+        return temp;
     }
     
-    public String searchByYearOfPublication(int year){
+    public ArrayList searchByYearOfPublication(int year){
+        ArrayList<Book> temp = new ArrayList<>();           
         for (Book book_name : book_names) {
             if ((book_name.getBookYear())==year) {
-                return book_name.getBookTitle();
+                temp.add(book_name);
             }
         }
-        return "";
+        return temp;
     }
 }
