@@ -1,6 +1,6 @@
 package sengassignment.Library;
 
-import java.io.*;
+import java.util.Date;
 import java.util.UUID;
 
 public class Book {
@@ -36,11 +36,13 @@ public class Book {
     }
     
     //when a book is being loaned
-    public Book(User u, String date, UUID ID){
+    public Book(User u){
+        
+        Date d = new Date();
+     
         this.u = u;
         this.onLoan = true;
-        this.date = date;
-        this.ID = ID;
+        this.date = d.toString();
     }
     
     public UUID getBookID(){
@@ -66,7 +68,15 @@ public class Book {
     public int getBookEdition(){
         return this.edition;
     }
-
+    
+    public boolean getBookOnLoan(){
+        return this.onLoan;
+    }
+    
+    public String getBookDate(){
+        return this.date;
+    }
+    
     @Override
     public String toString(){
         return "\nBook Title: " + title +
