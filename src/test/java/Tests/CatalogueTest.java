@@ -122,7 +122,7 @@ public class CatalogueTest {
         temp.add(b4);
         
         
-        Assert.assertEquals(temp, c.searchBYearOfPublication(1948));
+        Assert.assertEquals(temp, c.searchByYearOfPublication(1948));
     }
     
     
