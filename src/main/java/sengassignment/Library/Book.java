@@ -36,12 +36,11 @@ public class Book {
     }
     
     //when a book is being loaned
-    public Book(User u){
+    public void loanInfo(User u){
         
         Date d = new Date();
      
         this.u = u;
-        this.onLoan = true;
         this.date = d.toString();
     }
     
