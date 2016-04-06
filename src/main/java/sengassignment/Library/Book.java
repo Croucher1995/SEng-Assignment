@@ -1,7 +1,7 @@
 package sengassignment.Library;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
-import org.joda.time.*;
 
 public class Book {
     
@@ -12,7 +12,7 @@ public class Book {
     private int edition;  
     private UUID ID; 
     private boolean onLoan;
-    private String date;
+    private Date date;
     
     User u = new User();
     
@@ -83,21 +83,17 @@ public class Book {
     }
     
     public void setDate(Date d){     
-        this.date = d.toString();
+        this.date = d;
     }
     
-    public String getDate(){
+    public Date getDate(){
         return this.date;
     }
     
     public boolean Notexceeds4Weeks(){
         Calendar c = Calendar.getInstance();
-        Date d  = new date ();
-        if (d.after(this.date) && d.before(c.add(this.date,21))
-            {
-            return true;
-        }
-            else return false;
+        Date d  = new Date ();
+        return d.after(this.date) && d.before(c.add(this.date,21));
     }
     
     @Override
