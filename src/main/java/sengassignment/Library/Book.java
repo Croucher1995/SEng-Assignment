@@ -45,6 +45,7 @@ public class Book {
         this.date = d.toString();
     }
     
+    
     public UUID getBookID(){
         return this.ID;
     }
@@ -69,12 +70,26 @@ public class Book {
         return this.edition;
     }
     
-    public boolean getBookOnLoan(){
-        return this.onLoan;
+    public void borrowed(){
+       onLoan = true;
+    }
+    
+    public void returned(){
+        onLoan = false;
     }
     
     public String getBookDate(){
         return this.date;
+    }
+    
+    public boolean isBorrowed()
+    {
+        if (onLoan) {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
     @Override
