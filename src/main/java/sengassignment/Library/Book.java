@@ -84,12 +84,7 @@ public class Book {
     
     public boolean isBorrowed()
     {
-        if (onLoan) {
-            return true;
-        }
-        else{
-            return false;
-        }
+        return onLoan;
     }
     
     @Override
