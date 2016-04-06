@@ -18,7 +18,7 @@ public class User {
     private String town;
     private String email_address;
     private UUID ID;
-  
+    private int count;
 
 
 //to initialise
@@ -27,6 +27,7 @@ public class User {
         surname = "CROUCH";
         town = "RABAT";
         email_address = "acrouch@gmail.com";
+        count =0;
     }
 
     public User(String name, String surname, String town, String email_address){
@@ -37,6 +38,25 @@ public class User {
         this.ID = UUID.randomUUID();
     }
 
+    public boolean loanCounter_check()
+    {
+        if (count > 3) return false;
+        else return true;
+        
+        
+    }
+    
+    public boolean loanCounter_inc()
+    {
+        count ++;
+        
+    }
+    
+    public boolean loanCounter_dec()
+    {
+        count --:
+        
+    }
 
     public UUID getUserID(){
         return this.ID;
