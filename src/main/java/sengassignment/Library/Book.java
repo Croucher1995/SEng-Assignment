@@ -90,8 +90,14 @@ public class Book {
         return this.date;
     }
     
-    public boolean exceeds4Weeks(){
-       
+    public boolean Notexceeds4Weeks(){
+        Calendar c = Calendar.getInstance();
+        Date d  = new date ();
+        if (d.after(this.date) && d.before(c.add(this.date,21))
+            {
+            return true;
+        }
+            else return false;
     }
     
     @Override
