@@ -40,22 +40,18 @@ public class User {
 
     public boolean loanCounter_check()
     {
-        if (count > 3) return false;
-        else return true;
-        
-        
+        return count <= 3; 
     }
     
-    public boolean loanCounter_inc()
+    public void loanCounter_inc()
     {
         count ++;
         
     }
     
-    public boolean loanCounter_dec()
+    public void loanCounter_dec()
     {
-        count --:
-        
+        count --;   
     }
 
     public UUID getUserID(){
