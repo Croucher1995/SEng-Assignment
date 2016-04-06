@@ -1,7 +1,7 @@
 package sengassignment.Library;
-
 import java.util.Date;
 import java.util.UUID;
+import org.joda.time.*;
 
 public class Book {
     
@@ -37,10 +37,7 @@ public class Book {
     
     //when a book is being loaned
     public void loanInfo(User u){
-        Date d = new Date();
-     
         this.u = u;
-        this.date = d.toString();
     }
     
     public User getLoanInfo(){
@@ -78,14 +75,23 @@ public class Book {
     public void returned(){
         onLoan = false;
     }
-    
-    public String getBookDate(){
-        return this.date;
-    }
+   
     
     public boolean isBorrowed()
     {
         return onLoan;
+    }
+    
+    public void setDate(Date d){     
+        this.date = d.toString();
+    }
+    
+    public String getDate(){
+        return this.date;
+    }
+    
+    public boolean exceeds4Weeks(){
+       
     }
     
     @Override
