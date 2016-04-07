@@ -18,6 +18,7 @@ import sengassignment.Library.Book;
 import sengassignment.Library.Library;
 import sengassignment.Library.User;
 import static org.junit.Assert.*;
+import sengassignment.Library.Book;
 
 public class LibraryTest {
     
@@ -91,9 +92,14 @@ Library l = new Library();
     }
     
     @Test
-    public void testloanBookto() {
-    	
+    public void testloanBooktoOKUSER() {
+    	User u = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");
+    	Book b = new Book("andre","ab","fiction",1928,7);
+    	l.loanBookTo(b, u);
+    	assertTrue(l.getCheck());
     }
+    
+    
     
     @Test
     public void testReturnBook() {
