@@ -9,6 +9,7 @@ public class Library {
     
     public Library(){
         checkLoan = false;
+        checkReturn = false;
     }
     
     public void addUser(User u){
@@ -54,13 +55,26 @@ public class Library {
         b.returned();
         User u = b.getLoanInfo();
         u.loanCounter_dec();
+        setCheckReturn(true);
     }  
     
     public void setCheckLoan(boolean c){
         this.checkLoan = c;
     }
     
-    public boolean getCheck(){
+    public boolean getCheckLoan(){
         return this.checkLoan;
     }
+   
+    public boolean getCheckReturn(){
+        return this.checkReturn;
+    }
+    
+    public void setCheckReturn(boolean c){
+        this.checkReturn = c;
+    }
+    
+    
+    
+    
 }

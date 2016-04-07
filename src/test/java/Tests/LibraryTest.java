@@ -1,20 +1,12 @@
 package Tests;
 
-//import java.util.ArrayList;
-
-//import junit.framework.Assert;
-
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-
-
 import sengassignment.Library.Book;
-//import sengassignment.Library.Catalogue;
 import sengassignment.Library.Library;
 import sengassignment.Library.User;
 import static org.junit.Assert.*;
@@ -95,7 +87,7 @@ Library l = new Library();
     	User u = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");
     	Book b = new Book("andre","ab","fiction",1928,7);
     	l.loanBookTo(b, u);
-    	assertTrue(l.getCheck());
+    	assertTrue(l.getCheckLoan());
     }
     
     @Test
@@ -112,11 +104,11 @@ Library l = new Library();
         l.loanBookTo(b2,u);
         l.loanBookTo(b3,u);
         
-        assertTrue(l.getCheck());
+        assertTrue(l.getCheckLoan());
         
         l.loanBookTo(b4,u);
         
-        assertFalse(l.getCheck());
+        assertFalse(l.getCheckLoan());
     }
     
     @Test
@@ -127,18 +119,31 @@ Library l = new Library();
         Book b = new Book("andre","ab","fiction",1928,7);
         
         l.loanBookTo(b,u1);
-        assertTrue(l.getCheck());
+        assertTrue(l.getCheckLoan());
         
         l.loanBookTo(b,u2);
-        assertFalse(l.getCheck());
+        assertFalse(l.getCheckLoan());
         
     }
-    
     
     
     @Test
     public void testReturnBook() {
+    	 User u = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");
+    	 Book b = new Book("andre","ab","fiction",1928,7);
+    	 l.loanBookTo(b,u);
+    	 l.returnBook(b);
+    	 assertTrue(l.getCheckReturn());
+    	 
     }
     
+    //TO CHECK
+   /* @Test
+    public void testReturnBookEXCEEDES4WEEKS() {
+    }*/
+    
+    
     }
+    
+    
 

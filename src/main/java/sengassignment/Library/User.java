@@ -36,7 +36,7 @@ public class User {
         this.town = town;
         this.email_address = email_address;
         //this.ID = UUID.randomUUID();
-        countID = countID +1;
+        countID =countID +1;
     }
 
     public boolean loanCounter_check()

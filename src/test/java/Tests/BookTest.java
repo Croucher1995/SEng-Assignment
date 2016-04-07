@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import sengassignment.Library.Book;
 
 public class BookTest {
@@ -37,5 +38,11 @@ public class BookTest {
     @Test
     public void testGetAuthor() {
         Assert.assertEquals("ABC",b.getBookAuthor());
+    }
+    
+    @Test
+    public void testGetBookID() {
+    	Book b2 = new Book("ABS","ab","gujda",19,2);
+        Assert.assertEquals(1,b2.getBookID());
     }
 }

@@ -6,7 +6,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import sengassignment.Library.User;
 
 public class UserTest {
@@ -51,5 +50,12 @@ public class UserTest {
     public void testGetUserEmail() {
         Assert.assertEquals("acrouch@gmail.com",u.getUserEmail());
     }
+    
+    @Test
+    public void testGetUserID() {
+    	User u2 = new User("ABS","ab","gujda","asfsa@gmail.com");
+        Assert.assertEquals(1,u2.getUserID());
+    }
+    
 
 }
