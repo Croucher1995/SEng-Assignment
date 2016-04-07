@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -60,25 +62,30 @@ public class CatalogueTest {
         Book b1 = new Book("ABC", "AUTHOR", "FICTION", 1948, 7);
         Book b2 = new Book("ABCD", "AUTHOR", "FANTASY", 1959, 7);
         Book b3 = new Book("DEF", "AUTHOR", "FICTION", 2000, 7);
-        Book b4 = new Book("EF", "AUTHOR", "ACTION", 1948, 7);
+        Book b4 = new Book("", "AUTHOR", "ACTION", 1948, 7);
 
-        ArrayList <Book> book_names = new ArrayList<>();
-
-        book_names.add(b1);
-        book_names.add(b2);
-        book_names.add(b3);
-        book_names.add(b4);
-                
-        ArrayList<Book> temp = new ArrayList<>();
-        
-        temp.add(b3);
-        temp.add(b4);
-        
-        Book [] temparray = temp.toArray(new Book[temp.size()]);
-    
-        Assert.assertArrayEquals(temparray,c.searchByTitle("EF").toArray());
+        c.addBooks(b1);
+        c.addBooks(b2);
+        c.addBooks(b3);
+        c.addBooks(b4);
+          
+        assertTrue(c.searchByTitle("AB").contains(b1)&&c.searchByTitle("AB").contains(b2));
     }
     
+    @Test
+    public void testSearchByTitleNOTFOUND() {
+        Book b1 = new Book("ABC", "AUTHOR", "FICTION", 1948, 7);
+        Book b2 = new Book("ABCD", "AUTHOR", "FANTASY", 1959, 7);
+        Book b3 = new Book("DEF", "AUTHOR", "FICTION", 2000, 7);
+        Book b4 = new Book("", "AUTHOR", "ACTION", 1948, 7);
+
+        c.addBooks(b1);
+        c.addBooks(b2);
+        c.addBooks(b3);
+        c.addBooks(b4);
+          
+        assertTrue(c.searchByTitle("GHI").isEmpty());
+    }
     
     @Test
     public void testSearchByGenre(){
@@ -87,21 +94,27 @@ public class CatalogueTest {
         Book b3 = new Book("DEF", "AUTHOR", "FICTION", 2000, 7);
         Book b4 = new Book("EF", "AUTHOR", "ACTION", 1948, 7);
 
-        ArrayList <Book> book_names = new ArrayList<>();
+        c.addBooks(b1);
+        c.addBooks(b2);
+        c.addBooks(b3);
+        c.addBooks(b4);
+    
+        assertTrue(c.searchByGenre("FICTION").contains(b1)&&c.searchByGenre("FICTION").contains(b3));
+    }
+    
+    @Test
+    public void testSearchByGenreNOTFOUND(){
+        Book b1 = new Book("ABC", "AUTHOR", "FICTION", 1948, 7);
+        Book b2 = new Book("ABCD", "AUTHOR", "FANTASY", 1959, 7);
+        Book b3 = new Book("DEF", "AUTHOR", "FICTION", 2000, 7);
+        Book b4 = new Book("EF", "AUTHOR", "ACTION", 1948, 7);
 
-        book_names.add(b1);
-        book_names.add(b2);
-        book_names.add(b3);
-        book_names.add(b4);
-        
-        ArrayList<Book> temp = new ArrayList<>();
-        
-        temp.add(b2);
-        //temp.add(b3);
-        
-        Book [] temparray = temp.toArray(new Book[temp.size()]);
-        
-        Assert.assertArrayEquals(temparray, c.searchByGenre("FANTASY").toArray());
+        c.addBooks(b1);
+        c.addBooks(b2);
+        c.addBooks(b3);
+        c.addBooks(b4);
+    
+        assertTrue(c.searchByGenre("BIOGRAPHY").isEmpty());
     }
     
     @Test
@@ -110,23 +123,27 @@ public class CatalogueTest {
         Book b2 = new Book("ABCD", "AUTHOR", "FANTASY", 1959, 7);
         Book b3 = new Book("DEF", "AUTHOR", "FICTION", 2000, 7);
         Book b4 = new Book("EF", "AUTHOR", "ACTION", 1948, 7);
-        
-        ArrayList <Book> book_names = new ArrayList<>();
-        
-        book_names.add(b1);
-        book_names.add(b2);
-        book_names.add(b3);
-        book_names.add(b4);
-        
-        ArrayList<Book> temp = new ArrayList<>();
-        
-        temp.add(b1);
-        temp.add(b4);
-        
-        Book [] temparray = temp.toArray(new Book[temp.size()]);
-        
-        Assert.assertArrayEquals(temparray, c.searchByYearOfPublication(1948).toArray());
+
+        c.addBooks(b1);
+        c.addBooks(b2);
+        c.addBooks(b3);
+        c.addBooks(b4);
+    
+        assertTrue(c.searchByYearOfPublication(1948).contains(b1)&&c.searchByYearOfPublication(1948).contains(b4));
     }
     
+    @Test
+    public void testSearchByYearNOTFOUND(){
+        Book b1 = new Book("ABC", "AUTHOR", "FICTION", 1948, 7);
+        Book b2 = new Book("ABCD", "AUTHOR", "FANTASY", 1959, 7);
+        Book b3 = new Book("DEF", "AUTHOR", "FICTION", 2000, 7);
+        Book b4 = new Book("EF", "AUTHOR", "ACTION", 1948, 7);
+
+        c.addBooks(b1);
+        c.addBooks(b2);
+        c.addBooks(b3);
+        c.addBooks(b4);
     
+        assertTrue(c.searchByYearOfPublication(333333).isEmpty());
+    }
  }
