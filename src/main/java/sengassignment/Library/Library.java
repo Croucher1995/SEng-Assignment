@@ -3,9 +3,10 @@ import java.util.ArrayList;
 
 public class Library {
     ArrayList <User> users = new ArrayList<>();
+    private boolean check;
     
     public Library(){
-        
+        check = false;
     }
     
     public void addUser(User u){
@@ -25,21 +26,26 @@ public class Library {
             if(b.isBorrowed()){ //check if book is already on loan
                 if (b.exceeds4Weeks()){// to check if it is overdue
                     System.out.println("Book already on loan.");
+                    setCheck(false);
                } 
         
-                else
+                else{
                     System.out.println("Exceeded 4 weeks");
+                    setCheck(false);
+                }
             }
             else{
                 b.borrowed();
                 b.loanInfo(u);
                 u.loanCounter_inc();
                 System.out.println("Successful");
+                setCheck(true);
             }       
         }
-        else
+        else{
            System.out.println("User has exceeded maximum number of books.");
-
+           setCheck(false);
+        }
     }
     
     public void returnBook(Book b){
@@ -47,4 +53,12 @@ public class Library {
         User u = b.getLoanInfo();
         u.loanCounter_dec();
     }  
+    
+    public void setCheck(boolean c){
+        this.check = c;
+    }
+    
+    public boolean getCheck(){
+        return this.check;
+    }
 }
