@@ -4,11 +4,11 @@ import java.util.ArrayList;
 public class Catalogue {
     
    
-    
-    ArrayList <Book> book_names = new ArrayList<>();
+	 ArrayList <Book> book_names = new ArrayList<Book>();
+   
     
     public Catalogue() {
-       
+    	 ArrayList <Book> book_names = new ArrayList<>();
     }
     /*
     public Catalogue(Book b)
