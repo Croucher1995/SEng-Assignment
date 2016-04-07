@@ -1,9 +1,7 @@
 package Tests;
 
-import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
