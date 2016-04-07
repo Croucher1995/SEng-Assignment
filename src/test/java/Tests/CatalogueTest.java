@@ -1,14 +1,12 @@
 package Tests;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import sengassignment.Library.Book;
 import sengassignment.Library.Catalogue;
 
@@ -53,7 +51,8 @@ public class CatalogueTest {
         book_names.add(b3);
         book_names.add(b4);
         
-        Assert.assertEquals(book_names,c.getAllBooks());
+        //ASSERT ARRAY EQUALS 
+        Assert.assertEquals(b1,book_names.get(0));
     }
     
     @Test
@@ -72,10 +71,12 @@ public class CatalogueTest {
                 
         ArrayList<Book> temp = new ArrayList<>();
         
-        temp.add(b1);
-        temp.add(b2);
+        temp.add(b3);
+        temp.add(b4);
+        
+        Book [] temparray = temp.toArray(new Book[temp.size()]);
     
-        Assert.assertEquals(Arrays.asList("ABC", "ABCD"), c.searchByTitle("ABC").toArray());
+        Assert.assertArrayEquals(temparray,c.searchByTitle("EF").toArray());
     }
     
     
@@ -95,11 +96,12 @@ public class CatalogueTest {
         
         ArrayList<Book> temp = new ArrayList<>();
         
-        temp.add(b1);
-        temp.add(b3);
+        temp.add(b2);
+        //temp.add(b3);
         
+        Book [] temparray = temp.toArray(new Book[temp.size()]);
         
-        Assert.assertEquals(temp, c.searchByGenre("Fiction"));
+        Assert.assertArrayEquals(temparray, c.searchByGenre("FANTASY").toArray());
     }
     
     @Test
@@ -121,8 +123,9 @@ public class CatalogueTest {
         temp.add(b1);
         temp.add(b4);
         
+        Book [] temparray = temp.toArray(new Book[temp.size()]);
         
-        Assert.assertEquals(temp, c.searchByYearOfPublication(1948));
+        Assert.assertArrayEquals(temparray, c.searchByYearOfPublication(1948).toArray());
     }
     
     
