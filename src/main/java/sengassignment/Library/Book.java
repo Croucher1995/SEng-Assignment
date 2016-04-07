@@ -95,7 +95,7 @@ public class Book {
     public boolean exceeds4Weeks(){        
         long start = System.currentTimeMillis();
         long end = start + 2419200*1000;//convert to weeks
-        while(System.currentTimeMillis() < end)
+        while(start < end)
         {
         	return false;//KILL PROCESS
         }

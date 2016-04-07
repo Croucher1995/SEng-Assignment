@@ -41,7 +41,7 @@ public class User {
 
     public boolean loanCounter_check()
     {
-        return count <= 3; 
+        return count <= 2; 
     }
     
     public void loanCounter_inc()
