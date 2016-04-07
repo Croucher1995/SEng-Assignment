@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 public class LibraryTest {
     
-	Library l = new Library();
+Library l = new Library();
 	
     public LibraryTest() {
     }
