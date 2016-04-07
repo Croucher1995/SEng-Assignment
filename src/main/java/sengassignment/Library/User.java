@@ -16,7 +16,6 @@ public class User {
     private String surname;
     private String town;
     private String email_address;
-    //private UUID ID;
     private int count;
     private static int countID;
 
