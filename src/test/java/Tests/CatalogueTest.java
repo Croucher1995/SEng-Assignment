@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -44,17 +43,16 @@ public class CatalogueTest {
         Book b1 = new Book("ABC", "AUTHOR", "FICTION", 1948, 7);
         Book b2 = new Book("ABCD", "AUTHOR", "FANTASY", 1959, 7);
         Book b3 = new Book("DEF", "AUTHOR", "FICTION", 2000, 7);
-        Book b4 = new Book("EF", "AUTHOR", "ACTION", 1948, 7);
+        Book b4 = new Book("", "AUTHOR", "ACTION", 1948, 7);
 
-        ArrayList <Book> book_names = new ArrayList<>();
+        c.addBooks(b1);
+        c.addBooks(b2);
+        c.addBooks(b3);
+        c.addBooks(b4); 
+       
+        assertTrue(c.getAllBooks().contains(b1)&&c.getAllBooks().contains(b2)&&c.getAllBooks().contains(b3)&&c.getAllBooks().contains(b4));
 
-        book_names.add(b1);
-        book_names.add(b2);
-        book_names.add(b3);
-        book_names.add(b4);
         
-        //ASSERT ARRAY EQUALS 
-        Assert.assertEquals(b1,book_names.get(0));
     }
     
     @Test
