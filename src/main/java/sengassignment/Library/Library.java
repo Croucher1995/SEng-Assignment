@@ -16,12 +16,17 @@ public class Library {
         users.remove(u);
     }
     
+    public int numberofUsers(){
+    	return users.size();
+    }
+    
     public void loanBookTo(Book b, User u){
         if(u.loanCounter_check()){ //check if user has exceeded 3 books
             if(b.isBorrowed()){ //check if book is already on loan
-                if (){
+                if (b.exceeds4Weeks()){// to check if it is overdue
                     System.out.println("Book already on loan.");
                } 
+        
                 else
                     System.out.println("Exceeded 4 weeks");
             }
@@ -32,9 +37,9 @@ public class Library {
                 System.out.println("Successful");
             }       
         }
-        
         else
-            System.out.println("User has exceeded maximum number of books.");
+           System.out.println("User has exceeded maximum number of books.");
+
     }
     
     public void returnBook(Book b){

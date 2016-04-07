@@ -1,7 +1,6 @@
 package sengassignment.Library;
-import java.util.Calendar;
+//import java.util.Calendar;
 import java.util.Date;
-import java.util.UUID;
 
 public class Book {
     
@@ -10,7 +9,7 @@ public class Book {
     private String genre;
     private int year;
     private int edition;  
-    private UUID ID; 
+    private static int count;
     private boolean onLoan;
     private Date date;
     
@@ -24,6 +23,7 @@ public class Book {
         year = 0;
         edition = 0;  
         onLoan = false;
+        count =0;
     }
     
     //to create a new book in the library
@@ -32,7 +32,9 @@ public class Book {
         this.author = author;
         this.genre = genre;
         this.edition = edition;
-        this.ID = UUID.randomUUID();
+        this.year = year;
+        //this.ID = UUID.randomUUID();
+        count = count+1;
     }
     
     //when a book is being loaned
@@ -44,8 +46,8 @@ public class Book {
         return u;
     }
     
-    public UUID getBookID(){
-        return this.ID;
+    public int getBookID(){
+        return Book.count;
     }
     
     public String getBookTitle(){
@@ -90,16 +92,20 @@ public class Book {
         return this.date;
     }
     
-    public boolean Notexceeds4Weeks(){
-        Calendar c = Calendar.getInstance();
-        Date d  = new Date ();
-        return d.after(this.date) && d.before(c.add(this.date,21));
+    public boolean exceeds4Weeks(){        
+        long start = System.currentTimeMillis();
+        long end = start + 2419200*1000;//convert to weeks
+        while(System.currentTimeMillis() < end)
+        {
+        	return false;//KILL PROCESS
+        }
+        return true;
     }
     
     @Override
     public String toString(){
         return "\nBook Title: " + title +
-               "\nID: " + ID + 
+               "\nID: " + count + 
                "\nAuthor: " + author + 
                "\nEdition: " + edition +
                "\nYear of Publication: " + year;

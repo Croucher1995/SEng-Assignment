@@ -5,8 +5,7 @@
  */
 package sengassignment.Library;
 
-import java.io.*;
-import java.util.UUID;
+//import java.util.UUID;
 
 /**
  *
@@ -17,8 +16,9 @@ public class User {
     private String surname;
     private String town;
     private String email_address;
-    private UUID ID;
+    //private UUID ID;
     private int count;
+    private static int countID;
 
 
 //to initialise
@@ -28,6 +28,7 @@ public class User {
         town = "RABAT";
         email_address = "acrouch@gmail.com";
         count =0;
+        countID =0;
     }
 
     public User(String name, String surname, String town, String email_address){
@@ -35,7 +36,8 @@ public class User {
         this.surname = surname;
         this.town = town;
         this.email_address = email_address;
-        this.ID = UUID.randomUUID();
+        //this.ID = UUID.randomUUID();
+        countID = countID +1;
     }
 
     public boolean loanCounter_check()
@@ -54,8 +56,8 @@ public class User {
         count --;   
     }
 
-    public UUID getUserID(){
-        return this.ID;
+    public int getUserID(){
+        return User.countID;
     }
 
     public String getUserName(){

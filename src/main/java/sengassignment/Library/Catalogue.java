@@ -22,12 +22,12 @@ public class Catalogue {
         book_names.add(b);
     }
     
-    public ArrayList getAllBooks() {
+    public ArrayList<Book> getAllBooks() {
         return book_names;
         
     }
     
-    public ArrayList searchByTitle(String names){
+    public ArrayList<Book> searchByTitle(String names){
         ArrayList<Book> temp = new ArrayList<>();
         for (Book book_name : book_names) {
             if ((book_name.getBookTitle()).contains(names)) {
@@ -37,7 +37,7 @@ public class Catalogue {
         return temp;
     }
     
-    public ArrayList searchByGenre(String names){
+    public ArrayList<Book> searchByGenre(String names){
         ArrayList<Book> temp = new ArrayList<>();
         for (Book book_name : book_names) {
             if ((book_name.getBookGenre()).contains(names)) {
@@ -47,7 +47,7 @@ public class Catalogue {
         return temp;
     }
     
-    public ArrayList searchByYearOfPublication(int year){
+    public ArrayList<Book> searchByYearOfPublication(int year){
         ArrayList<Book> temp = new ArrayList<>();
         for (Book book_name : book_names) {
             if ((book_name.getBookYear())==year) {
