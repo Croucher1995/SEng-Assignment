@@ -99,7 +99,41 @@ Library l = new Library();
     	assertTrue(l.getCheck());
     }
     
+    @Test
+    public void testloanBooktoUSERWITH3BOOKS(){
+        User u = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");
+    	
+        Book b1 = new Book("andre","ab","fiction",1928,7);
+     	Book b2 = new Book("ABC","DEF","fantasy",1945,7);
+    	Book b3 = new Book("DEF","DEF","fiction",1999,6);
+     	Book b4 = new Book("DEF","DEF","fiction",1999,6);
+
+       
+        l.loanBookTo(b1,u);
+        l.loanBookTo(b2,u);
+        l.loanBookTo(b3,u);
+        
+        assertTrue(l.getCheck());
+        
+        l.loanBookTo(b4,u);
+        
+        assertFalse(l.getCheck());
+    }
     
+    @Test
+    public void testloanBooktoBOOKALREADYBORROWED(){
+        User u1 = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");
+        User u2 = new User("abc","def","Gudja","abcdef@gmail.com");
+    	
+        Book b = new Book("andre","ab","fiction",1928,7);
+        
+        l.loanBookTo(b,u1);
+        assertTrue(l.getCheck());
+        
+        l.loanBookTo(b,u2);
+        assertFalse(l.getCheck());
+        
+    }
     
     @Test
     public void testReturnBook() {
