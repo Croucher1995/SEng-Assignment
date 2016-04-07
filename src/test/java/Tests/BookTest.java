@@ -1,5 +1,7 @@
 package Tests;
 
+import java.util.Date;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -10,7 +12,6 @@ import org.junit.Test;
 import sengassignment.Library.Book;
 
 public class BookTest {
-    Book b = new Book();
     public BookTest() {
     }
     
@@ -32,17 +33,49 @@ public class BookTest {
 
     @Test
     public void testGetTitle() {
-        Assert.assertEquals("",b.getBookTitle());
+    	Book b1 = new Book("ABS","ab","gujda",19,2);
+        Assert.assertEquals("ABS",b1.getBookTitle());
     }
     
     @Test
     public void testGetAuthor() {
-        Assert.assertEquals("ABC",b.getBookAuthor());
+    	Book b2 = new Book("ABS","ab","gujda",19,2);
+        Assert.assertEquals("ab",b2.getBookAuthor());
+    }
+    
+    @Test
+    public void testGetEdition() {
+    	Book b3 = new Book("ABS","ab","gujda",19,2);
+        Assert.assertEquals(2,b3.getBookEdition());
     }
     
     @Test
     public void testGetBookID() {
-    	Book b2 = new Book("ABS","ab","gujda",19,2);
-        Assert.assertEquals(1,b2.getBookID());
+    	Book b4 = new Book("ABS","ab","gujda",19,2);
+        Assert.assertEquals(4,b4.getBookID());
     }
+    
+    @Test
+    public void testsetDate() {
+    	Book b4 = new Book("ABS","ab","gujda",19,2);
+    	Date d = new Date();
+    	
+    	b4.setDate(d);
+    	
+        Assert.assertEquals(d,b4.getDate());
+    }
+    
+    
+    @Test
+    public void testToString() {
+    	Book b5 = new Book("ABS","ab","gujda",19,2);
+        Assert.assertEquals("\nBook Title: " + "ABS" +
+               "\nID: " + 6 + 
+               "\nAuthor: " + "ab" + 
+               "\nEdition: " + 2 +
+               "\nYear of Publication: " + 19 +
+               "\nGenre :" + "gujda",b5.toString());
+    }
+    
+    
 }

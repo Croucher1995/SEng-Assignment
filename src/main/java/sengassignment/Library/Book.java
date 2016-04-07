@@ -18,7 +18,7 @@ public class Book {
     //to initialise 
     public Book(){
         title = "";
-        author = "ABC"; 
+        author = ""; 
         genre = "";
         year = 0;
         edition = 0;  
@@ -108,7 +108,8 @@ public class Book {
                "\nID: " + count + 
                "\nAuthor: " + author + 
                "\nEdition: " + edition +
-               "\nYear of Publication: " + year;
+               "\nYear of Publication: " + year +
+               "\nGenre :" + genre;
         
     }
 }
