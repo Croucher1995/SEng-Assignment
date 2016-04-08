@@ -2,7 +2,7 @@ package sengassignment.Library;
 import java.util.ArrayList;
 
 public class Library {
-    ArrayList <User> users = new ArrayList<>();
+    ArrayList <User> users = new ArrayList<User>();
     private boolean checkLoan;
     private boolean checkReturn;
     
