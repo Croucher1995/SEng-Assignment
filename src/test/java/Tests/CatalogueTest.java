@@ -96,8 +96,8 @@ public class CatalogueTest {
         c.addBooks(b3);
         c.addBooks(b4);
     
-        assertTrue(c.searchByGenre("FICTION").size()==2);
-        assertTrue(c.searchByGenre("FICTION").contains(b1)&&c.searchByGenre("FICTION").contains(b3));
+        assertTrue(c.searchByGenre("Fiction").size()==2);
+        assertTrue(c.searchByGenre("Fiction").contains(b1)&&c.searchByGenre("Fiction").contains(b3));
     }
     
     @Test
