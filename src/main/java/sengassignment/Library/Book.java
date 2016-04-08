@@ -1,5 +1,4 @@
 package sengassignment.Library;
-//import java.util.Calendar;
 import java.util.Date;
 
 public class Book {
@@ -15,26 +14,31 @@ public class Book {
     
     User u = new User();
     
+    final long msInAWeek = 604800000;
+    
     //to initialise 
     public Book(){
         title = "";
         author = ""; 
         genre = "";
         year = 0;
-        edition = 0;  
-        onLoan = false;
+        edition = 0;
         count =0;
+        onLoan = false;
     }
     
     //to create a new book in the library
     public Book(String title, String author, String genre, int year, int edition){
+        Date d = new Date();
+
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.edition = edition;
         this.year = year;
-        //this.ID = UUID.randomUUID();
         count = count+1;
+        date = d;
+
     }
     
     //when a book is being loaned
@@ -92,13 +96,12 @@ public class Book {
         return this.date;
     }
     
-    
-    public boolean exceeds4Weeks(long today){
-    	long fourweeksinmillis = 2419000000L;
-    	//long today = System.currentTimeMillis();
-    	Date loanDate = this.getLoanDate();
-    	long millisecond = loanDate.getTime();
-        return (today - fourweeksinmillis) > millisecond;
+    public boolean exceedsANumberOfWeeks(long today, int noOfWeeks ){
+        
+    	long limit = noOfWeeks*msInAWeek;
+    	long whenBorrowed = getLoanDate().getTime();
+        return (today - limit) > whenBorrowed; 
+
     }
     
     @Override

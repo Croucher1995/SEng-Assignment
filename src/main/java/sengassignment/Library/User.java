@@ -1,16 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sengassignment.Library;
 
-//import java.util.UUID;
-
-/**
- *
- * @author Caroline
- */
 public class User {
     private String name;
     private String surname;
@@ -35,7 +24,6 @@ public class User {
         this.surname = surname;
         this.town = town;
         this.email_address = email_address;
-        //this.ID = UUID.randomUUID();
         countID =countID +1;
     }
 
