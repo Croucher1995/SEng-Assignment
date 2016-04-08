@@ -150,7 +150,7 @@ Library l = new Library();
         
         //Remove comment marks for next 2 lines after following the previous instructions 
         
-        //l.loanBookTo(b2,u);
+       //l.loanBookTo(b2,u);
         //assertFalse(l.getCheckLoan());  
         
     }
