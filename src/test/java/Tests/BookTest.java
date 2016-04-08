@@ -83,6 +83,8 @@ public class BookTest {
 
 package Tests;
 
+import static org.junit.Assert.assertFalse;
+
 import java.util.Date;
 
 import org.junit.After;
@@ -158,10 +160,13 @@ public class BookTest {
                "\nYear of Publication: " + 19 +
                "\nGenre :" + "gujda",b6.toString());
     }
-    /*
+
     @Test
     public void testExceeds4Weeks() {
-    	assertTrue();
-    }*/
+    	Book b7 = new Book("ABS","ab","gujda",19,2);
+        Date d = new Date();
+        b7.setLoanDate(d);
+        assertFalse(b7.exceeds4Weeks(d.getTime()));
+    }
     
 }
