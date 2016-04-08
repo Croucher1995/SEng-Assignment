@@ -62,7 +62,7 @@ public class BookTest {
     	
     	b4.setDate(d);
     	
-        Assert.assertEquals(d,b4.getDate());
+        Assert.assertEquals(d,b4.getLoanDate());
     }
     
     
