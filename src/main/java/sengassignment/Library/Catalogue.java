@@ -2,13 +2,9 @@ package sengassignment.Library;
 import java.util.ArrayList;
 
 public class Catalogue {
-    
-   
-	 ArrayList <Book> book_names = new ArrayList<Book>();
-   
+    ArrayList <Book> book_names = new ArrayList<Book>();
     
     public Catalogue() {
-    	// ArrayList <Book> book_names = new ArrayList<>();
     }
 
     public void addBooks(Book b){
@@ -17,7 +13,6 @@ public class Catalogue {
     
     public ArrayList<Book> getAllBooks() {
         return book_names;
-        
     }
     
     public ArrayList<Book> searchByTitle(String names){
@@ -29,8 +24,6 @@ public class Catalogue {
         }
         return temp;
     }
-    
-  
     
     public ArrayList<Book> searchByGenre(String names){
         ArrayList<Book> temp = new ArrayList<>();

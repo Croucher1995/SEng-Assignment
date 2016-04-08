@@ -28,12 +28,13 @@ public class Book {
     }
     
     //to create a new book in the library
-    public Book(String title, String author, String genre, int year, int edition){
+    public Book(String title, String author, Genre genre, int year, int edition){
         Date d = new Date();
-
+        setBookGenre(genre);
+        
         this.title = title;
         this.author = author;
-        this.genre = genre;
+        this.genre = getBookGenre();
         this.edition = edition;
         this.year = year;
         count++;
@@ -63,6 +64,34 @@ public class Book {
         return this.author;
     }
     
+    
+    public void setBookGenre(Genre genre){
+        switch (genre) {
+            case Fiction:
+                this.genre = "Fiction";
+                break;
+                    
+            case ScienceFiction:
+                this.genre = "Science Fiction";
+                break;
+			
+            case Fantasy:
+                this.genre = "Fantasy";
+                break;
+            
+            case Action:
+                this.genre = "Action";
+                break;
+
+            case Romance:
+                this.genre = "Romance";
+                break;				
+            
+            default:
+                this.genre = "Not Specified";
+                break;
+        }
+    }
     public String getBookGenre(){
         return this.genre;
     }
