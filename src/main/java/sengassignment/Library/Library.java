@@ -1,9 +1,8 @@
 package sengassignment.Library;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Library {
-    ArrayList <User> users = new ArrayList<>();
+    ArrayList <User> users = new ArrayList<User>();
     private boolean checkLoan;
     private boolean checkReturn;
     

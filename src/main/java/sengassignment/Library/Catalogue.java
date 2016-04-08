@@ -8,7 +8,7 @@ public class Catalogue {
    
     
     public Catalogue() {
-    	 ArrayList <Book> book_names = new ArrayList<>();
+    	// ArrayList <Book> book_names = new ArrayList<>();
     }
 
     public void addBooks(Book b){
