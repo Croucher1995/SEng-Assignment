@@ -2,15 +2,12 @@ package Tests;
 
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Test;
-import sengassignment.Library.Genre;
 
 
 public class GenreTest {
-    Genre g = new Genre();
+    //Genre g = new Genre();
     public GenreTest() {
     }
     
@@ -29,7 +26,7 @@ public class GenreTest {
     @After
     public void tearDown() {
     }
-
+/*
     @Test
     public void testGetType() {
         Assert.assertEquals("FICTION",g.getType());
@@ -38,5 +35,5 @@ public class GenreTest {
     @Test
     public void testGere_Description() {
         Assert.assertEquals("A STORY FILLED WITH IMAGINATION",g.getGenre_Description());
-    }
+    }*/
  }

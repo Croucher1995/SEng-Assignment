@@ -33,7 +33,7 @@ public class Library {
                     b.borrowed();//set borrowed to true
                     b.setLoanDate(d);//set the date of the loan
 
-                    b.loanInfo(u);//save user info to the book being borrowed
+                    b.setloanInfo(u);//save user info to the book being borrowed
                     u.loanCounter_inc();//increment the number of books the user has
                     
                     setCheckLoan(true); 

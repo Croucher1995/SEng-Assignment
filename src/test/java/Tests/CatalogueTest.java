@@ -8,6 +8,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import sengassignment.Library.Book;
 import sengassignment.Library.Catalogue;
+import static sengassignment.Library.Genre.*;
 
 
 public class CatalogueTest {
@@ -38,10 +39,10 @@ public class CatalogueTest {
     
     @Test
     public void testGetAllBooks() {
-        Book b1 = new Book("ABC", "AUTHOR", "FICTION", 1948, 7);
-        Book b2 = new Book("ABCD", "AUTHOR", "FANTASY", 1959, 7);
-        Book b3 = new Book("DEF", "AUTHOR", "FICTION", 2000, 7);
-        Book b4 = new Book("", "AUTHOR", "ACTION", 1948, 7);
+        Book b1 = new Book("ABC", "AUTHOR", Fiction, 1948, 7);
+        Book b2 = new Book("ABCD", "AUTHOR", Fantasy, 1959, 7);
+        Book b3 = new Book("DEF", "AUTHOR", Fiction, 2000, 7);
+        Book b4 = new Book("", "AUTHOR", Action, 1948, 7);
 
         c.addBooks(b1);
         c.addBooks(b2);
@@ -55,10 +56,10 @@ public class CatalogueTest {
     
     @Test
     public void testSearchByTitle() {
-        Book b1 = new Book("ABC", "AUTHOR", "FICTION", 1948, 7);
-        Book b2 = new Book("ABCD", "AUTHOR", "FANTASY", 1959, 7);
-        Book b3 = new Book("DEF", "AUTHOR", "FICTION", 2000, 7);
-        Book b4 = new Book("", "AUTHOR", "ACTION", 1948, 7);
+        Book b1 = new Book("ABC", "AUTHOR", Fiction, 1948, 7);
+        Book b2 = new Book("ABCD", "AUTHOR", Fantasy, 1959, 7);
+        Book b3 = new Book("DEF", "AUTHOR", Fiction, 2000, 7);
+        Book b4 = new Book("", "AUTHOR", Action, 1948, 7);
 
         c.addBooks(b1);
         c.addBooks(b2);
@@ -70,10 +71,10 @@ public class CatalogueTest {
     
     @Test
     public void testSearchByTitleNOTFOUND() {
-        Book b1 = new Book("ABC", "AUTHOR", "FICTION", 1948, 7);
-        Book b2 = new Book("ABCD", "AUTHOR", "FANTASY", 1959, 7);
-        Book b3 = new Book("DEF", "AUTHOR", "FICTION", 2000, 7);
-        Book b4 = new Book("", "AUTHOR", "ACTION", 1948, 7);
+        Book b1 = new Book("ABC", "AUTHOR", Fiction, 1948, 7);
+        Book b2 = new Book("ABCD", "AUTHOR", Fantasy, 1959, 7);
+        Book b3 = new Book("DEF", "AUTHOR", Fiction, 2000, 7);
+        Book b4 = new Book("", "AUTHOR", Action, 1948, 7);
 
         c.addBooks(b1);
         c.addBooks(b2);
@@ -85,25 +86,26 @@ public class CatalogueTest {
     
     @Test
     public void testSearchByGenre(){
-        Book b1 = new Book("ABC", "AUTHOR", "FICTION", 1948, 7);
-        Book b2 = new Book("ABCD", "AUTHOR", "FANTASY", 1959, 7);
-        Book b3 = new Book("DEF", "AUTHOR", "FICTION", 2000, 7);
-        Book b4 = new Book("EF", "AUTHOR", "ACTION", 1948, 7);
+        Book b1 = new Book("ABC", "AUTHOR", Fiction, 1948, 7);
+        Book b2 = new Book("ABCD", "AUTHOR", Fantasy, 1959, 7);
+        Book b3 = new Book("DEF", "AUTHOR", Fiction, 2000, 7);
+        Book b4 = new Book("", "AUTHOR", Action, 1948, 7);
 
         c.addBooks(b1);
         c.addBooks(b2);
         c.addBooks(b3);
         c.addBooks(b4);
     
+        assertTrue(c.searchByGenre("FICTION").size()==2);
         assertTrue(c.searchByGenre("FICTION").contains(b1)&&c.searchByGenre("FICTION").contains(b3));
     }
     
     @Test
     public void testSearchByGenreNOTFOUND(){
-        Book b1 = new Book("ABC", "AUTHOR", "FICTION", 1948, 7);
-        Book b2 = new Book("ABCD", "AUTHOR", "FANTASY", 1959, 7);
-        Book b3 = new Book("DEF", "AUTHOR", "FICTION", 2000, 7);
-        Book b4 = new Book("EF", "AUTHOR", "ACTION", 1948, 7);
+        Book b1 = new Book("ABC", "AUTHOR", Fiction, 1948, 7);
+        Book b2 = new Book("ABCD", "AUTHOR", Fantasy, 1959, 7);
+        Book b3 = new Book("DEF", "AUTHOR", Fiction, 2000, 7);
+        Book b4 = new Book("", "AUTHOR", Action, 1948, 7);
 
         c.addBooks(b1);
         c.addBooks(b2);
@@ -115,10 +117,10 @@ public class CatalogueTest {
     
     @Test
     public void testSearchByYear(){
-        Book b1 = new Book("ABC", "AUTHOR", "FICTION", 1948, 7);
-        Book b2 = new Book("ABCD", "AUTHOR", "FANTASY", 1959, 7);
-        Book b3 = new Book("DEF", "AUTHOR", "FICTION", 2000, 7);
-        Book b4 = new Book("EF", "AUTHOR", "ACTION", 1948, 7);
+        Book b1 = new Book("ABC", "AUTHOR", Fiction, 1948, 7);
+        Book b2 = new Book("ABCD", "AUTHOR", Fantasy, 1959, 7);
+        Book b3 = new Book("DEF", "AUTHOR", Fiction, 2000, 7);
+        Book b4 = new Book("", "AUTHOR", Action, 1948, 7);
 
         c.addBooks(b1);
         c.addBooks(b2);
@@ -130,10 +132,10 @@ public class CatalogueTest {
     
     @Test
     public void testSearchByYearNOTFOUND(){
-        Book b1 = new Book("ABC", "AUTHOR", "FICTION", 1948, 7);
-        Book b2 = new Book("ABCD", "AUTHOR", "FANTASY", 1959, 7);
-        Book b3 = new Book("DEF", "AUTHOR", "FICTION", 2000, 7);
-        Book b4 = new Book("EF", "AUTHOR", "ACTION", 1948, 7);
+        Book b1 = new Book("ABC", "AUTHOR", Fiction, 1948, 7);
+        Book b2 = new Book("ABCD", "AUTHOR", Fantasy, 1959, 7);
+        Book b3 = new Book("DEF", "AUTHOR", Fiction, 2000, 7);
+        Book b4 = new Book("", "AUTHOR", Action, 1948, 7);
 
         c.addBooks(b1);
         c.addBooks(b2);
