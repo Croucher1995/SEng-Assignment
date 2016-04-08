@@ -1,6 +1,5 @@
 package sengassignment.Library;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Library {
     ArrayList <User> users = new ArrayList<>();
@@ -25,8 +24,7 @@ public class Library {
     	return users.size();
     }
     
-    public void loanBookTo(Book b, User u){
-        
+    public void loanBookTo(Book b, User u){  
         if(u.loanCounter_check()){ //check if user has exceeded 3 books
             if(b.isBorrowed()){ //check if book is already on loan
                 if (b.exceeds4Weeks(System.currentTimeMillis())){// to check if it is overdue
