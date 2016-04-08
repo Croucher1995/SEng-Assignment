@@ -1,5 +1,6 @@
 package sengassignment.Library;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Library {
     ArrayList <User> users = new ArrayList<>();
@@ -25,9 +26,10 @@ public class Library {
     }
     
     public void loanBookTo(Book b, User u){
+        
         if(u.loanCounter_check()){ //check if user has exceeded 3 books
             if(b.isBorrowed()){ //check if book is already on loan
-                if (b.exceeds4Weeks()){// to check if it is overdue
+                if (b.exceeds4Weeks(System.currentTimeMillis())){// to check if it is overdue
                     System.out.println("Book already on loan.");
                     setCheckLoan(false);
                } 
@@ -49,6 +51,33 @@ public class Library {
            System.out.println("User has exceeded maximum number of books.");
            setCheckLoan(false);
         }
+        
+        /*
+	if(u.loanCounter_check()){ //check if user has exceeded 3 books
+            if(!b.isBorrowed()){ //check if book is already on loan
+                if (!b.exceeds4Weeks(System.currentTimeMillis())){// to check if it is overdue
+                    Date d = new Date();
+                    b.borrowed();//set borrowed to true
+                    b.loanInfo(u);//save user info to the book being borrowed
+                    b.setLoanDate(d);//set the date of the loan
+                    u.loanCounter_inc();//increment the number of books the user has
+                    setCheckLoan(true); 
+                    System.out.println("Successful");
+                } 
+                else{
+                    System.out.println("Exceeded 4 weeks");
+                    setCheckLoan(false); 
+                }
+            }
+            else{
+                System.out.println("Book already on loan.");
+                setCheckLoan(false);
+            }       
+        }
+        else{
+           System.out.println("User has exceeded maximum number of books.");
+           setCheckLoan(false);
+        }*/
     }
     
     public void returnBook(Book b){

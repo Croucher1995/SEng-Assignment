@@ -60,12 +60,10 @@ public class BookTest {
     	Book b4 = new Book("ABS","ab","gujda",19,2);
     	Date d = new Date();
     	
-    	b4.setDate(d);
+    	b4.setLoanDate(d);
     	
-        Assert.assertEquals(d,b4.getDate());
+        Assert.assertEquals(d,b4.getLoanDate());
     }
-    
-    
     
     @Test
     public void testToString() {
@@ -77,6 +75,10 @@ public class BookTest {
                "\nYear of Publication: " + 19 +
                "\nGenre :" + "gujda",b5.toString());
     }
-    
+    /*
+    @Test
+    public void testExceeds4Weeks() {
+    	assertTrue();
+    }*/
     
 }
