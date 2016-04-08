@@ -1,5 +1,7 @@
 package Tests;
 
+import static org.junit.Assert.assertFalse;
+
 import java.util.Date;
 
 import org.junit.After;
@@ -57,28 +59,31 @@ public class BookTest {
     
     @Test
     public void testsetDate() {
-    	Book b4 = new Book("ABS","ab","gujda",19,2);
+    	Book b5 = new Book("ABS","ab","gujda",19,2);
     	Date d = new Date();
     	
-    	b4.setLoanDate(d);
+    	b5.setLoanDate(d);
     	
-        Assert.assertEquals(d,b4.getLoanDate());
+        Assert.assertEquals(d,b5.getLoanDate());
     }
     
     @Test
     public void testToString() {
-    	Book b5 = new Book("ABS","ab","gujda",19,2);
+    	Book b6 = new Book("ABS","ab","gujda",19,2);
         Assert.assertEquals("\nBook Title: " + "ABS" +
                "\nID: " + 6 + 
                "\nAuthor: " + "ab" + 
                "\nEdition: " + 2 +
                "\nYear of Publication: " + 19 +
-               "\nGenre :" + "gujda",b5.toString());
+               "\nGenre :" + "gujda",b6.toString());
     }
-    /*
+
     @Test
     public void testExceeds4Weeks() {
-    	assertTrue();
-    }*/
+    	Book b7 = new Book("ABS","ab","gujda",19,2);
+        Date d = new Date();
+        b7.setLoanDate(d);
+        assertFalse(b7.exceeds4Weeks(d.getTime()));
+    }
     
 }
