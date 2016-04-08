@@ -10,12 +10,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
+import static sengassignment.Library.Genre.*;
 import sengassignment.Library.Book;
 
 public class BookTest {
     
-    Book b = new Book("The Martian","Andy Weir","Science Fiction",2014,1);
+    Book b = new Book("The Martian","Andy Weir",ScienceFiction,2014,1);
 
     public BookTest() {
     }
