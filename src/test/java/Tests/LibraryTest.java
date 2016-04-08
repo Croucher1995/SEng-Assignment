@@ -94,11 +94,10 @@ Library l = new Library();
     public void testloanBooktoUSERWITH3BOOKS(){
         User u = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");
     	
-        Book b1 = new Book("andre","ab","fiction",1928,7);
+        Book b1 = new Book("Harry Potter","J.K.Rowling","Fiction", 1997,7);
      	Book b2 = new Book("ABC","DEF","fantasy",1945,7);
     	Book b3 = new Book("DEF","DEF","fiction",1999,6);
      	Book b4 = new Book("DEF","DEF","fiction",1999,6);
-
        
         l.loanBookTo(b1,u);
         l.loanBookTo(b2,u);
@@ -123,9 +122,38 @@ Library l = new Library();
         
         l.loanBookTo(b,u2);
         assertFalse(l.getCheckLoan());
-        
     }
     
+    @Test
+    public void testloanBooktoEXCEEDED4WEEKS() throws InterruptedException{
+        User u = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");    	
+        Book b1 = new Book("andre","ab","fiction",1928,7);
+        Book b2 = new Book("andre","ab","fiction",1928,7);
+
+        l.loanBookTo(b1,u);
+        assertTrue(l.getCheckLoan());
+        
+        Thread.sleep(3000); 
+        
+        /* This test works after doing the following
+         * In class Library,
+         * In method loanBookTo, 
+         * when calling b.exceedsANumberOfWeeks, 
+         * change the second parameter to 0.
+        
+         * This will make the amount of time for which the user can keep a book 0 seconds,
+         * Since 3 seconds will have passed after the first loan, (by Thread.sleep(3000))
+         * the loan will not be successful, as desired. 
+        
+         * If this is not done, to test this function, 4 weeks would have to pass to make sure it works correctly.
+         */
+        
+        //Remove comment marks for next 2 lines after following the previous instructions 
+        
+        //l.loanBookTo(b2,u);
+        //assertFalse(l.getCheckLoan());  
+        
+    }
     
     @Test
     public void testReturnBook() {
@@ -133,11 +161,9 @@ Library l = new Library();
     	 Book b = new Book("andre","ab","fiction",1928,7);
     	 l.loanBookTo(b,u);
     	 l.returnBook(b);
-    	 assertTrue(l.getCheckReturn());
-    	 
-    }
-    
-    }
+    	 assertTrue(l.getCheckReturn());  	 
+    }    
+}
     
     
 
