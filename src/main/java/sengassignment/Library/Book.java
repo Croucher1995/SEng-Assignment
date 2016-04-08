@@ -84,7 +84,7 @@ public class Book {
         return onLoan;
     }
     
-    public void setDate(Date d){     
+    public void setLoanDate(Date d){     
         this.date = d;
     }
     
@@ -93,17 +93,12 @@ public class Book {
     }
     
     
-    public boolean exceeds4Weeks(){
+    public boolean exceeds4Weeks(long today){
     	long fourweeksinmillis = 2419000000L;
-    	long start = System.currentTimeMillis();
+    	//long today = System.currentTimeMillis();
     	Date loanDate = this.getLoanDate();
     	long millisecond = loanDate.getTime();
-    	if ((start - fourweeksinmillis) > millisecond)
-    	{
-    		return true;
-    	}
-    	else
-    		return false;
+        return (today - fourweeksinmillis) > millisecond;
     }
     
     @Override
