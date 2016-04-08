@@ -88,18 +88,22 @@ public class Book {
         this.date = d;
     }
     
-    public Date getDate(){
+    public Date getLoanDate(){
         return this.date;
     }
     
-    public boolean exceeds4Weeks(){        
-        long start = System.currentTimeMillis();
-        long end = start + 2419200*1000;//convert to weeks
-        while(start < end)
-        {
-        	return false;//KILL PROCESS
-        }
-        return true;
+    
+    public boolean exceeds4Weeks(){
+    	long fourweeksinmillis = 2419000000L;
+    	long start = System.currentTimeMillis();
+    	Date loanDate = this.getLoanDate();
+    	long millisecond = loanDate.getTime();
+    	if ((start - fourweeksinmillis) > millisecond)
+    	{
+    		return true;
+    	}
+    	else
+    		return false;
     }
     
     @Override

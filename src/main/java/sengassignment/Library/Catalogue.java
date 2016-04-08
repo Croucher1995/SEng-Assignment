@@ -10,12 +10,7 @@ public class Catalogue {
     public Catalogue() {
     	 ArrayList <Book> book_names = new ArrayList<>();
     }
-    /*
-    public Catalogue(Book b)
-    {
-        book_names.add(b);
-    }*/
-    
+
     public void addBooks(Book b){
         book_names.add(b);
     }
