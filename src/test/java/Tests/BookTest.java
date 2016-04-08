@@ -14,6 +14,9 @@ import org.junit.Test;
 import sengassignment.Library.Book;
 
 public class BookTest {
+    
+    Book b = new Book("The Martian","Andy Weir","Science Fiction",2014,1);
+
     public BookTest() {
     }
     
@@ -32,58 +35,58 @@ public class BookTest {
     @After
     public void tearDown() {
     }
-
+    
     @Test
-    public void testGetTitle() {
-    	Book b1 = new Book("ABS","ab","gujda",19,2);
-        Assert.assertEquals("ABS",b1.getBookTitle());
+    public void testGetBookID() {
+        Assert.assertEquals(1,b.getBookID());
     }
     
     @Test
-    public void testGetAuthor() {
-    	Book b2 = new Book("ABS","ab","gujda",19,2);
-        Assert.assertEquals("ab",b2.getBookAuthor());
+    public void testGetBookTitle() {
+        Assert.assertEquals("The Martian",b.getBookTitle());
+    }
+    
+    @Test
+    public void testGetBookAuthor() {
+        Assert.assertEquals("Andy Weir",b.getBookAuthor());
+    }
+    
+    @Test
+    public void testGetGenre() {
+        Assert.assertEquals("Science Fiction",b.getBookGenre());
+    }
+    
+    @Test
+    public void testGetYear() {
+        Assert.assertEquals(2014,b.getBookYear());
     }
     
     @Test
     public void testGetEdition() {
-    	Book b3 = new Book("ABS","ab","gujda",19,2);
-        Assert.assertEquals(2,b3.getBookEdition());
-    }
-    
-    @Test
-    public void testGetBookID() {
-    	Book b4 = new Book("ABS","ab","gujda",19,2);
-        Assert.assertEquals(4,b4.getBookID());
+        Assert.assertEquals(1,b.getBookEdition());
     }
     
     @Test
     public void testsetDate() {
-    	Book b5 = new Book("ABS","ab","gujda",19,2);
     	Date d = new Date();
-    	
-    	b5.setLoanDate(d);
-    	
-        Assert.assertEquals(d,b5.getLoanDate());
-    }
-  
-    @Test
-    public void testToString() {
-    	Book b6 = new Book("ABS","ab","gujda",19,2);
-        Assert.assertEquals("\nBook Title: " + "ABS" +
-               "\nID: " + 7 + 
-               "\nAuthor: " + "ab" + 
-               "\nEdition: " + 2 +
-               "\nYear of Publication: " + 19 +
-               "\nGenre :" + "gujda",b6.toString());
-    }
-
-    @Test
-    public void testExceedsANumberOfWeeks() {
-    	Book b7 = new Book("ABS","ab","gujda",19,2);
-        Date d = new Date();
-        b7.setLoanDate(d);
-        assertFalse(b7.exceedsANumberOfWeeks(d.getTime(),4));
+    	b.setLoanDate(d);
+        Assert.assertEquals(d,b.getLoanDate());
     }
     
+    @Test
+    public void testExceedsANumberOfWeeks() {
+        Date d = new Date();
+        b.setLoanDate(d);
+        assertFalse(b.exceedsANumberOfWeeks(d.getTime(),4));
+    }
+    
+    @Test
+    public void testToString() {
+        Assert.assertEquals("\nID: " + 1 + 
+               "\nBook Title: " + "The Martian" +
+               "\nAuthor: " + "Andy Weir" + 
+               "\nGenre :" + "Science Fiction" +
+               "\nYear of Publication: " + 2014 +
+               "\nEdition: " + 1,b.toString());
+    }
 }
