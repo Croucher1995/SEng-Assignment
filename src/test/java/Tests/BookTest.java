@@ -71,7 +71,7 @@ public class BookTest {
     public void testToString() {
     	Book b6 = new Book("ABS","ab","gujda",19,2);
         Assert.assertEquals("\nBook Title: " + "ABS" +
-               "\nID: " + 7 + 
+               "\nID: " + 6 + 
                "\nAuthor: " + "ab" + 
                "\nEdition: " + 2 +
                "\nYear of Publication: " + 19 +
