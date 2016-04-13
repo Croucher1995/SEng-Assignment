@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class Catalogue {
     ArrayList <Book> book_names = new ArrayList<Book>();
+    Book b1 = new Book();
     
     public Catalogue() {
     }
@@ -18,17 +19,17 @@ public class Catalogue {
     public ArrayList<Book> searchByTitle(String names){
         ArrayList<Book> temp = new ArrayList<Book>();
         for (Book book_name : book_names) {
-            if ((book_name.getBookTitle()).contains(names)) {
+            if ((book_name.getBookTitle()).toLowerCase().contains(names)) {
                 temp.add(book_name);
             }
         }
         return temp;
     }
     
-    public ArrayList<Book> searchByGenre(String names){
+    public ArrayList<Book> searchByGenre(Genre names){
         ArrayList<Book> temp = new ArrayList<Book>();
         for (Book book_name : book_names) {
-            if ((book_name.getBookGenre()).contains(names)) {
+            if ((book_name.getBookGenre())==names) {
                 temp.add(book_name);
             }
         }

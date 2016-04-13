@@ -1,11 +1,12 @@
 package sengassignment.Library;
 import java.util.Date;
+import static sengassignment.Library.Genre.*;
 
 public class Book {
     
     private String title;
     private String author; 
-    private String genre;
+    private Genre genre;
     private int year;
     private int edition;  
     private int count;
@@ -13,14 +14,14 @@ public class Book {
     private Date date;
     
     User u = new User();
-    
+   
     final long msInAWeek = 604800000;
     
     //to initialise 
     public Book(){
         title = "";
         author = ""; 
-        genre = "";
+        genre = Default;
         year = 0;
         edition = 0;
         count =0;
@@ -68,32 +69,32 @@ public class Book {
     public void setBookGenre(Genre genre){
         switch (genre) {
             case Fiction:
-                this.genre = "Fiction";
+                this.genre = Fiction;
                 break;
                     
             case ScienceFiction:
-                this.genre = "Science Fiction";
+                this.genre = ScienceFiction;
                 break;
 			
             case Fantasy:
-                this.genre = "Fantasy";
+                this.genre = Fantasy;
                 break;
             
             case Action:
-                this.genre = "Action";
+                this.genre = Action;
                 break;
 
             case Romance:
-                this.genre = "Romance";
+                this.genre = Romance;
                 break;				
             
             default:
-                this.genre = "Not Specified";
+                this.genre = Default;
                 break;
         }
     }
-    public String getBookGenre(){
-        return this.genre;
+    public Genre getBookGenre(){
+        return genre;
     }
       
     public int getBookYear(){

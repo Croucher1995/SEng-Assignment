@@ -6,15 +6,15 @@ public class User {
     private String town;
     private String email_address;
     private int count;
-    private static int countID;
+    private int countID;
 
 
 //to initialise
     public User(){
-        name = "ANDRE";
-        surname = "CROUCH";
-        town = "RABAT";
-        email_address = "acrouch@gmail.com";
+        name = "";
+        surname = "";
+        town = "";
+        email_address = "";
         count =0;
         countID =0;
     }
@@ -44,7 +44,7 @@ public class User {
     }
 
     public int getUserID(){
-        return User.countID;
+        return countID;
     }
 
     public String getUserName(){
