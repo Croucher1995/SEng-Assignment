@@ -14,13 +14,21 @@ import static sengassignment.Library.Genre.*;
 
 public class LibraryTest {
     
-Library l = new Library();
+    Library l = new Library();
+    User u = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");
+    User u1 = new User("Caroline","Caruana","Naxxar","carolinecaruana@gmail.com");
+    User u2= new User("Clarke","Vella","Mosta","clarkevella@gmail.com");
+    User u3 = new User("Charlie ","Borg","Mellieha","charlieborg@gmail.com");
+    User u4 = new User("Denise","Cutajar","Hal Far","denisecutajar@gmail.com");
 	
+    
+        
     public LibraryTest() {
     }
     
     @BeforeClass
     public static void setUpClass() {
+        
     }
     
     @AfterClass
@@ -29,7 +37,10 @@ Library l = new Library();
     
     @Before
     public void setUp() {
-    
+        l.addUser(u1);
+    	l.addUser(u2);
+    	l.addUser(u3);
+    	l.addUser(u4);
     }
     
     @After
@@ -38,48 +49,18 @@ Library l = new Library();
     
     @Test
     public void testaddUser() {
-    	User u = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");
-    	User u1 = new User("Caroline","Caruana","Gudja","dalemic@gmail.com");
-    	User u2= new User("Romario","Catania","Gudja","croucherajkdhfa@gmail.com");
-    	User u3 = new User("Dale ","Micallef","Gudja","danielfav@gmail.com");
-    	User u4 = new User("Daniel","Fava","Gudja","carcar@gmail.com");
-    
-    	assertTrue(l.numberofUsers() == 0);
-    	
-    	l.addUser(u);
-    	assertTrue(l.numberofUsers()==1);
-    	l.addUser(u1);
-    	l.addUser(u2);
-    	l.addUser(u3);
-    	l.addUser(u4);
-    	assertTrue(l.numberofUsers()==5);
-    	
+    	assertTrue(l.numberofUsers()==4);
+        
+        l.addUser(u);
+        assertTrue(l.numberofUsers()==5);
     }
     
     @Test
     public void testremoveUser() {
-    	User u = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");
-    	User u1 = new User("Caroline","Caruana","Gudja","dalemic@gmail.com");
-    	User u2= new User("Romario","Catania","Gudja","croucherajkdhfa@gmail.com");
-    	User u3 = new User("Dale ","Micallef","Gudja","danielfav@gmail.com");
-    	User u4 = new User("Daniel","Fava","Gudja","carcar@gmail.com");
-    
-    	assertTrue(l.numberofUsers() == 0);
+    	assertTrue(l.numberofUsers() == 4);
     	
-    	l.addUser(u);
-    	assertTrue(l.numberofUsers()==1);
-    	l.addUser(u1);
-    	l.addUser(u2);
-    	l.addUser(u3);
-    	l.addUser(u4);
-    	assertTrue(l.numberofUsers()==5);
-    	l.removeUser(u);
-    	assertTrue(l.numberofUsers()==4);
     	l.removeUser(u1);
-    	l.removeUser(u2);
-    	l.removeUser(u3);
-    	l.removeUser(u4);
-    	assertTrue(l.numberofUsers()==0);
+    	assertTrue(l.numberofUsers()==3);
 
     }
     

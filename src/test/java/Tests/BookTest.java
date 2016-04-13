@@ -53,7 +53,7 @@ public class BookTest {
     
     @Test
     public void testGetGenre() {
-        Assert.assertEquals("Science Fiction",b.getBookGenre());
+        Assert.assertEquals(ScienceFiction,b.getBookGenre());
     }
     
     @Test
@@ -85,7 +85,7 @@ public class BookTest {
         Assert.assertEquals("\nID: " + 1 + 
                "\nBook Title: " + "The Martian" +
                "\nAuthor: " + "Andy Weir" + 
-               "\nGenre :" + "Science Fiction" +
+               "\nGenre :" + ScienceFiction +
                "\nYear of Publication: " + 2014 +
                "\nEdition: " + 1,b.toString());
     }

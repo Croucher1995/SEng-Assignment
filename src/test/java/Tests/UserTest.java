@@ -9,7 +9,7 @@ import org.junit.Test;
 import sengassignment.Library.User;
 
 public class UserTest {
-    User u = new User();
+    User u = new User("ANDRE", "CROUCHER", "RABAT", "acrouch@gmail.com" );
     public UserTest() {
     }
     
@@ -30,13 +30,14 @@ public class UserTest {
     }
     
     @Test
+    
     public void testGetUserName() {
         Assert.assertEquals("ANDRE",u.getUserName());
     }
     
     @Test
     public void testGetUserSurname() {
-        Assert.assertEquals("CROUCH",u.getUserSurname());
+        Assert.assertEquals("CROUCHER",u.getUserSurname());
     }
     
     
@@ -53,8 +54,7 @@ public class UserTest {
     
     @Test
     public void testGetUserID() {
-    	User u2 = new User("ABS","ab","gujda","asfsa@gmail.com");
-        Assert.assertEquals(1,u2.getUserID());
+        Assert.assertEquals(1,u.getUserID());
     }
     
 
