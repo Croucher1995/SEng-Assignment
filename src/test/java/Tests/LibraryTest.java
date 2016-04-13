@@ -63,7 +63,7 @@ public class LibraryTest {
     	assertTrue(l.numberofUsers()==4);
 
     }
-    
+   
     @Test
     public void testloanBooktoOKUSER() {
     	l.loanBookTo(b, u);
@@ -110,6 +110,8 @@ public class LibraryTest {
          * the loan will not be successful, as desired. 
         
          * If this is not done, to test this function, 4 weeks would have to pass to make sure it works correctly.
+        
+         * NB: Other tests using loanBookTo might not pass.
          */
         
         //Remove comment marks for next 2 lines after following the previous instructions 
@@ -118,7 +120,7 @@ public class LibraryTest {
         //assertFalse(l.getCheckLoan());  
         
     }
-    
+   
     @Test
     public void testReturnBook() {
     	 l.loanBookTo(b,u);
