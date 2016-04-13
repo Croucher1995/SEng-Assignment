@@ -1,7 +1,6 @@
 package Tests;
 
 import static org.junit.Assert.assertFalse;
-
 import java.util.Date;
 
 import org.junit.After;
@@ -13,28 +12,22 @@ import org.junit.Test;
 import static sengassignment.Library.Genre.*;
 import sengassignment.Library.Book;
 
-public class BookTest {
-    
+public class BookTest {   
     Book b = new Book("The Martian","Andy Weir",ScienceFiction,2014,1);
 
-    public BookTest() {
-    }
+    public BookTest() {}
     
     @BeforeClass
-    public static void setUpClass() {
-    }
+    public static void setUpClass() {}
     
     @AfterClass
-    public static void tearDownClass() {
-    }
+    public static void tearDownClass() {}
     
     @Before
-    public void setUp() {
-    }
+    public void setUp() {}
     
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
     
     @Test
     public void testGetBookID() {

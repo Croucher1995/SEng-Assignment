@@ -9,25 +9,21 @@ import org.junit.Test;
 import sengassignment.Library.User;
 
 public class UserTest {
-    User u = new User("ANDRE", "CROUCHER", "RABAT", "acrouch@gmail.com" );
-    public UserTest() {
-    }
+    User u = new User("ANDRE", "CROUCHER", "RABAT", "andrecroucher@gmail.com" );
+    
+    public UserTest() {}
     
     @BeforeClass
-    public static void setUpClass() {
-    }
+    public static void setUpClass() {}
     
     @AfterClass
-    public static void tearDownClass() {
-    }
+    public static void tearDownClass() {}
     
     @Before
-    public void setUp() {
-    }
+    public void setUp() {}
     
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
     
     @Test
     
@@ -49,13 +45,11 @@ public class UserTest {
     
     @Test
     public void testGetUserEmail() {
-        Assert.assertEquals("acrouch@gmail.com",u.getUserEmail());
+        Assert.assertEquals("andrecroucher@gmail.com",u.getUserEmail());
     }
     
     @Test
     public void testGetUserID() {
         Assert.assertEquals(1,u.getUserID());
     }
-    
-
 }

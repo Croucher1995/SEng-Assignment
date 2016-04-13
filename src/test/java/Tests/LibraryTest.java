@@ -13,30 +13,30 @@ import static org.junit.Assert.*;
 import static sengassignment.Library.Genre.*;
 
 public class LibraryTest {
-    
     Library l = new Library();
+    
     User u = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");
     User u1 = new User("Caroline","Caruana","Naxxar","carolinecaruana@gmail.com");
     User u2= new User("Clarke","Vella","Mosta","clarkevella@gmail.com");
     User u3 = new User("Charlie ","Borg","Mellieha","charlieborg@gmail.com");
     User u4 = new User("Denise","Cutajar","Hal Far","denisecutajar@gmail.com");
 	
-    
-        
-    public LibraryTest() {
-    }
+    Book b = new Book("Lord Of The Rings","J.R.R. Tolkein",Fiction,1954,1);
+    Book b1 = new Book("HARRY POTTER", "J.K. ROWLING", Fiction, 1997, 5);
+    Book b2 = new Book("THE KNIFE OF NEVER LETTING GO", "PATRICK NESS", Fantasy, 2000, 7);
+    Book b3 = new Book("LADY MIDNIGHT", "CASSANDRA CLARE", Fiction, 2000, 7);
+    Book b4 = new Book("GLASS SWORD", "VICTORIA AVEYARD", Action, 2016, 3);
+      
+    public LibraryTest() {}
     
     @BeforeClass
-    public static void setUpClass() {
-        
-    }
+    public static void setUpClass() {}
     
     @AfterClass
-    public static void tearDownClass() {
-    }
+    public static void tearDownClass() {}
     
     @Before
-    public void setUp() {
+    public void setUp() {  
         l.addUser(u1);
     	l.addUser(u2);
     	l.addUser(u3);
@@ -44,8 +44,7 @@ public class LibraryTest {
     }
     
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
     
     @Test
     public void testaddUser() {
@@ -57,30 +56,22 @@ public class LibraryTest {
     
     @Test
     public void testremoveUser() {
-    	assertTrue(l.numberofUsers() == 4);
+        l.addUser(u);
+    	assertTrue(l.numberofUsers() == 5);
     	
-    	l.removeUser(u1);
-    	assertTrue(l.numberofUsers()==3);
+    	l.removeUser(u);
+    	assertTrue(l.numberofUsers()==4);
 
     }
     
     @Test
     public void testloanBooktoOKUSER() {
-    	User u = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");
-    	Book b = new Book("andre","ab",Fiction,1928,7);
     	l.loanBookTo(b, u);
     	assertTrue(l.getCheckLoan());
     }
     
     @Test
-    public void testloanBooktoUSERWITH3BOOKS(){
-        User u = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");
-    	
-        Book b1 = new Book("Harry Potter","J.K.Rowling",Fiction, 1997,7);
-     	Book b2 = new Book("ABC","DEF",Fantasy,1945,7);
-    	Book b3 = new Book("DEF","DEF",Fiction,1999,6);
-     	Book b4 = new Book("DEF","DEF",Fiction,1999,6);
-       
+    public void testloanBooktoUSERWITH3BOOKS(){     
         l.loanBookTo(b1,u);
         l.loanBookTo(b2,u);
         l.loanBookTo(b3,u);
@@ -94,11 +85,6 @@ public class LibraryTest {
     
     @Test
     public void testloanBooktoBOOKALREADYBORROWED(){
-        User u1 = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");
-        User u2 = new User("abc","def","Gudja","abcdef@gmail.com");
-    	
-        Book b = new Book("andre","ab",Fiction,1928,7);
-        
         l.loanBookTo(b,u1);
         assertTrue(l.getCheckLoan());
         
@@ -108,10 +94,6 @@ public class LibraryTest {
     
     @Test
     public void testloanBooktoEXCEEDED4WEEKS() throws InterruptedException{
-        User u = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");    	
-        Book b1 = new Book("andre","ab",Fiction,1928,7);
-        Book b2 = new Book("andre","ab",Fiction,1928,7);
-
         l.loanBookTo(b1,u);
         assertTrue(l.getCheckLoan());
         
@@ -132,15 +114,13 @@ public class LibraryTest {
         
         //Remove comment marks for next 2 lines after following the previous instructions 
         
-       //l.loanBookTo(b2,u);
+        //l.loanBookTo(b2,u);
         //assertFalse(l.getCheckLoan());  
         
     }
     
     @Test
     public void testReturnBook() {
-    	 User u = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");
-    	 Book b = new Book("andre","ab",Fiction,1928,7);
     	 l.loanBookTo(b,u);
     	 l.returnBook(b);
     	 assertTrue(l.getCheckReturn());  	 

@@ -19,94 +19,58 @@ public class CatalogueTest {
     Book b3 = new Book("LADY MIDNIGHT", "CASSANDRA CLARE", Fiction, 2000, 7);
     Book b4 = new Book("GLASS SWORD", "VICTORIA AVEYARD", Action, 2016, 3);
     
-    public CatalogueTest() {
-    }
+    public CatalogueTest() {}
     
     @BeforeClass
-    public static void setUpClass() {      
-       
-    }
+    public static void setUpClass() {}
     
     @AfterClass
-    public static void tearDownClass() {
-    }
+    public static void tearDownClass() {}
     
     @Before
     public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-    
-    @Test
-    public void testGetAllBooks() {
         c.addBooks(b1);
         c.addBooks(b2);
         c.addBooks(b3);
         c.addBooks(b4);
-        
+    }
+    
+    @After
+    public void tearDown() {}
+    
+    @Test
+    public void testGetAllBooks() { 
         assertTrue(c.getAllBooks().contains(b1)&&c.getAllBooks().contains(b2)&&c.getAllBooks().contains(b3)&&c.getAllBooks().contains(b4));  
     }
     
     @Test
     public void testSearchByTitle() {
-        c.addBooks(b1);
-        c.addBooks(b2);
-        c.addBooks(b3);
-        c.addBooks(b4);
-          
         assertTrue(c.searchByTitle("potter").contains(b1));
     }
     
     @Test
     public void testSearchByTitleNOTFOUND() {
-        c.addBooks(b1);
-        c.addBooks(b2);
-        c.addBooks(b3);
-        c.addBooks(b4);
-          
-        assertTrue(c.searchByTitle("Lord of the rings").isEmpty());
+       assertTrue(c.searchByTitle("Lord of the rings").isEmpty());
     }
     
     @Test
     public void testSearchByGenre(){
-        c.addBooks(b1);
-        c.addBooks(b2);
-        c.addBooks(b3);
-        c.addBooks(b4);
-    
         assertTrue(c.searchByGenre(Fiction).size()==2);
         assertTrue(c.searchByGenre(Fiction).contains(b1)&&c.searchByGenre(Fiction).contains(b3));
     }
     
     @Test
     public void testSearchByGenreNOTFOUND(){
-        c.addBooks(b1);
-        c.addBooks(b2);
-        c.addBooks(b3);
-        c.addBooks(b4);
-    
-        assertTrue(c.searchByGenre(Romance).isEmpty());
+       assertTrue(c.searchByGenre(Romance).isEmpty());
     }
     
     @Test
     public void testSearchByYear(){
-        c.addBooks(b1);
-        c.addBooks(b2);
-        c.addBooks(b3);
-        c.addBooks(b4);
-    
         assertTrue(c.searchByYearOfPublication(2000).contains(b2)&&c.searchByYearOfPublication(2000).contains(b3));
     }
     
     @Test
     public void testSearchByYearNOTFOUND(){
-        c.addBooks(b1);
-        c.addBooks(b2);
-        c.addBooks(b3);
-        c.addBooks(b4);
-    
-        assertTrue(c.searchByYearOfPublication(1995).isEmpty());
+       assertTrue(c.searchByYearOfPublication(1995).isEmpty());
     }
  }
