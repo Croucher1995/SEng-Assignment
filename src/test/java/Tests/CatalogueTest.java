@@ -43,34 +43,4 @@ public class CatalogueTest {
     public void testGetAllBooks() { 
         assertTrue(c.getAllBooks().contains(b1)&&c.getAllBooks().contains(b2)&&c.getAllBooks().contains(b3)&&c.getAllBooks().contains(b4));  
     }
-    
-    @Test
-    public void testSearchByTitle() {
-        assertTrue(c.searchByTitle("potter").contains(b1));
-    }
-    
-    @Test
-    public void testSearchByTitleNOTFOUND() {
-       assertTrue(c.searchByTitle("Lord of the rings").isEmpty());
-    }
-    
-    @Test
-    public void testSearchByGenre(){
-        assertTrue(c.searchByGenre(Fiction).contains(b1)&&c.searchByGenre(Fiction).contains(b3));
-    }
-    
-    @Test
-    public void testSearchByGenreNOTFOUND(){
-       assertTrue(c.searchByGenre(Romance).isEmpty());
-    }
-    
-    @Test
-    public void testSearchByYear(){
-        assertTrue(c.searchByYearOfPublication(2000).contains(b2)&&c.searchByYearOfPublication(2000).contains(b3));
-    }
-    
-    @Test
-    public void testSearchByYearNOTFOUND(){
-       assertTrue(c.searchByYearOfPublication(1995).isEmpty());
-    }
- }
+}
