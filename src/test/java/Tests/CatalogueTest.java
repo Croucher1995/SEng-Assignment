@@ -13,7 +13,8 @@ import static sengassignment.Library.Genre.*;
 
 public class CatalogueTest {
     
-    Catalogue c = new Catalogue();
+    Catalogue c = Catalogue.getInstance();
+    
     Book b1 = new Book("HARRY POTTER", "J.K. ROWLING", Fiction, 1997, 5);
     Book b2 = new Book("THE KNIFE OF NEVER LETTING GO", "PATRICK NESS", Fantasy, 2000, 7);
     Book b3 = new Book("LADY MIDNIGHT", "CASSANDRA CLARE", Fiction, 2000, 7);
