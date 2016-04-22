@@ -56,7 +56,6 @@ public class CatalogueTest {
     
     @Test
     public void testSearchByGenre(){
-        assertTrue(c.searchByGenre(Fiction).size()==2);
         assertTrue(c.searchByGenre(Fiction).contains(b1)&&c.searchByGenre(Fiction).contains(b3));
     }
     
