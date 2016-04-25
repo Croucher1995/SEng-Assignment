@@ -1,4 +1,5 @@
-package sengassignment.Library;
+package sengassignment.Library.Filters;
+import sengassignment.Library.Genre;
 import static sengassignment.Library.Genre.*;
 
 public interface Filter {
