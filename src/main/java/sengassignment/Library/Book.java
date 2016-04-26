@@ -1,4 +1,5 @@
 package sengassignment.Library;
+import java.util.ArrayList;
 import java.util.Date;
 import static sengassignment.Library.Genre.*;
 
@@ -10,8 +11,10 @@ public class Book {
     private int year;
     private int edition;  
     private int count;
-    private boolean onLoan;
     private Date date;
+    
+    private ArrayList<Observer> observers = new ArrayList<Observer>();
+    private boolean onLoan;
     
     User u = new User();
    
@@ -48,6 +51,7 @@ public class Book {
         this.u = u;
     }
     
+   
     public User getLoanInfo(){
         return u;
     }
@@ -113,6 +117,11 @@ public class Book {
         onLoan = false;
     }
    
+    public void setOnLoan(boolean onLoan){
+        this.onLoan = onLoan;
+        notifyAllObservers();
+    }
+    
     public boolean isBorrowed(){
         return onLoan;
     }
@@ -132,6 +141,19 @@ public class Book {
 
     }
     
+    public void attach(Observer observer){
+        observers.add(observer);
+    }
+    
+    public void notifyAllObservers(){
+        for(Observer observer:observers)
+            observer.update(observers.indexOf(observer));
+    }
+    
+    public void notifyObserver(Observer o){
+        System.out.println(observers.indexOf(o));
+    }
+   
     @Override
     public String toString(){
         return "\nID: " + count + 

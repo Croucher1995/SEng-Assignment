@@ -1,6 +1,6 @@
 package sengassignment.Library;
 
-public class User {
+public class User extends Observer{
     private String name;
     private String surname;
     private String town;
@@ -8,8 +8,19 @@ public class User {
     private int count;
     private int countID;
 
-
-//to initialise
+    public void update(int i){
+        System.out.println("update");
+    }
+    
+     public void test(int i){
+        System.out.println(i);
+    }
+    
+    public User(Book book){
+        this.book = book;
+        this.book.attach(this);
+    }
+    //to initialise
     public User(){
         name = "";
         surname = "";

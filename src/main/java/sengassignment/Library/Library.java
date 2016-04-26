@@ -46,6 +46,8 @@ public class Library {
             }
             else{
                 System.out.println("Book already on loan.");
+                b.attach(u);
+                b.notifyObserver(u);
                 setCheckLoan(false);
             }  
             
