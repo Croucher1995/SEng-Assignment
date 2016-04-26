@@ -57,7 +57,7 @@ public class CatalogueTest {
     
     @Test
     public void testSearchTitle() { 
-        assertTrue(c.searchForBooks(f).size()==0);
+        assertTrue(c.searchForBooks(f).size()==2);
     }
     
 }

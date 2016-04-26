@@ -38,6 +38,8 @@ public class Catalogue {
                                     
             }  
         }
+        System.out.println(temp.size());
+
         return temp;
     }
 }
