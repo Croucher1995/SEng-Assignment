@@ -69,6 +69,13 @@ public class Library {
         
         setCheckReturn(true);
         System.out.println("Return sucessful");
+        
+        if(b.NumberOfObservers()!=0){
+            User uNext = (User) b.getNextObserver();
+            loanBookTo(b, uNext);
+            b.detach(uNext);
+            b.notifyAllObservers();
+        }
     }  
     
     public void setCheckLoan(boolean c){
