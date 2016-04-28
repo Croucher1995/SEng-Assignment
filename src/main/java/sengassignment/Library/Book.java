@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import static sengassignment.Library.Genre.*;
 
-public class Book {
+public class Book implements Observable{
     
     private String title;
     private String author; 
@@ -145,15 +145,29 @@ public class Book {
         observers.add(observer);
     }
     
+    public void detach(Observer observer){
+        observers.remove(observer);
+    }
+    
     public void notifyAllObservers(){
-        for(Observer observer:observers)
+        for(Observer observer:observers){
             observer.update(observers.indexOf(observer));
+        }
+            
     }
     
     public void notifyObserver(Observer o){
         System.out.println(observers.indexOf(o));
     }
+    
+    public int numberOfObservers(){
+        return observers.size();
+    }
    
+    public Observer getNextObserver(){
+        return observers.get(0) ;
+    }
+    
     @Override
     public String toString(){
         return "\nID: " + count + 
