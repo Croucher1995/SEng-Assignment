@@ -162,7 +162,6 @@ public class LibraryTest {
     	l.returnBook(b);
     	assertTrue(l.getCheckLoan());
     }
-    
 }
     
     
