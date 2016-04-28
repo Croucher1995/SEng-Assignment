@@ -10,14 +10,16 @@ import sengassignment.Library.Book;
 import sengassignment.Library.Library;
 import sengassignment.Library.User;
 import static org.junit.Assert.*;
-import static sengassignment.Library.Genre.*;
+import static sengassignment.Library.Genre.Action;
+import static sengassignment.Library.Genre.Fantasy;
+import static sengassignment.Library.Genre.Fiction;
 
 public class LibraryTest {
     Library l = new Library();
     
     User u = new User("Andre","Croucher","Gudja","andrecroucher@gmail.com");
     User u1 = new User("Caroline","Caruana","Naxxar","carolinecaruana@gmail.com");
-    User u2= new User("Clarke","Vella","Mosta","clarkevella@gmail.com");
+    User u2 = new User("Clarke","Vella","Mosta","clarkevella@gmail.com");
     User u3 = new User("Charlie ","Borg","Mellieha","charlieborg@gmail.com");
     User u4 = new User("Denise","Cutajar","Hal Far","denisecutajar@gmail.com");
 	
@@ -126,7 +128,18 @@ public class LibraryTest {
     	 l.loanBookTo(b,u);
     	 l.returnBook(b);
     	 assertTrue(l.getCheckReturn());  	 
-    }    
+    }   
+    
+    @Test
+    public void testLoantoManyUsers()
+    {
+    	l.loanBookTo(b, u1);
+    	assertTrue(l.getCheckLoan());
+    	l.loanBookTo(b, u2);
+    	assertFalse(l.getCheckLoan());
+    	l.loanBookTo(b, u3);
+    	assertFalse(l.getCheckLoan());
+    }
 }
     
     

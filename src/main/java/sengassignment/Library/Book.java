@@ -157,7 +157,7 @@ public class Book implements Observable{
     }
     
     public void notifyObserver(Observer o){
-        System.out.println(observers.indexOf(o));
+        System.out.println("Your position is: " + observers.indexOf(o));
     }
     
     public int numberOfObservers(){
