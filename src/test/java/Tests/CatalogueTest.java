@@ -53,11 +53,5 @@ public class CatalogueTest {
     @Test
     public void testGetAllBooks() { 
         assertTrue(c.getAllBooks().contains(b1)&&c.getAllBooks().contains(b2)&&c.getAllBooks().contains(b3)&&c.getAllBooks().contains(b4));  
-    }
-    
-    @Test
-    public void testSearchTitle() { 
-        assertTrue(c.searchForBooks(f).size()==2);
-    }
-    
+    }    
 }
