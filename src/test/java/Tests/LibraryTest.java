@@ -140,6 +140,17 @@ public class LibraryTest {
     	l.loanBookTo(b, u3);
     	assertFalse(l.getCheckLoan());
     }
+    
+    public void testReturntoNextUser()
+    {
+    	l.loanBookTo(b, u1);
+    	assertTrue(l.getCheckLoan());
+    	l.loanBookTo(b, u2);
+    	assertFalse(l.getCheckLoan());
+    	l.returnBook(b);
+    	assertTrue(l.getCheckLoan());
+    }
+    
 }
     
     
