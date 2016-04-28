@@ -16,7 +16,7 @@ public class User implements Observer{
     }
     
     public void update(int i){
-        System.out.println("Your position in the queue is" + i);
+        System.out.println("Your position is " + i);
     }
     
     //to initialise
