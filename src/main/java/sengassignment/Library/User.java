@@ -1,6 +1,6 @@
 package sengassignment.Library;
 
-public class User extends Observer{
+public class User implements Observer{
     private String name;
     private String surname;
     private String town;
@@ -8,18 +8,22 @@ public class User extends Observer{
     private int count;
     private int countID;
 
-    public void update(int i){
-        System.out.println("update");
+    private Observable observable = null;
+    Library l = new Library();
+    
+    public User(Observable observable){
+        this.observable = observable;
     }
     
+    public void update(int i){
+        System.out.println("Your position in the queue is" + i);
+    }
+    
+   
      public void test(int i){
         System.out.println(i);
     }
     
-    public User(Book book){
-        this.book = book;
-        this.book.attach(this);
-    }
     //to initialise
     public User(){
         name = "";
@@ -45,8 +49,7 @@ public class User extends Observer{
     
     public void loanCounter_inc()
     {
-        count ++;
-        
+        count ++;   
     }
     
     public void loanCounter_dec()
