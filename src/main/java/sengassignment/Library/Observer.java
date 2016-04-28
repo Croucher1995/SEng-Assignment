@@ -1,8 +1,5 @@
 package sengassignment.Library;
 
-public abstract class Observer {
-    protected Book book;
+public interface Observer {
     public abstract void update(int i);
-    public abstract void test(int i);
-
 }
