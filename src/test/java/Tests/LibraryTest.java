@@ -151,6 +151,18 @@ public class LibraryTest {
     	assertTrue(l.getCheckLoan());
     }
     
+    @Test
+    public void testReturnWithMultipleinQueue()
+    {
+    	l.loanBookTo(b, u1);
+    	assertTrue(l.getCheckLoan());
+    	l.loanBookTo(b, u2);
+    	assertFalse(l.getCheckLoan());
+    	l.loanBookTo(b, u3);
+    	l.returnBook(b);
+    	assertTrue(l.getCheckLoan());
+    }
+    
 }
     
     
