@@ -38,9 +38,9 @@ public class AndFilters implements Filter{
     public ArrayList<Book> passFilter (ArrayList<Book> books, String filter){
         ArrayList<Book> books1 = title.passFilter(books, titleFilter);
         ArrayList<Book> books2 = author.passFilter(books1, authorFilter);
-        ArrayList<Book> books3 = author.passFilter(books2, genreFilter);
-        ArrayList<Book> books4 = author.passFilter(books3, yearFilter);
-        ArrayList<Book> books5 = author.passFilter(books4, editionFilter);
+        ArrayList<Book> books3 = genre.passFilter(books2, genreFilter);
+        ArrayList<Book> books4 = year.passFilter(books3, yearFilter);
+        ArrayList<Book> books5 = edition.passFilter(books4, editionFilter);
         
         return books5;
     }
