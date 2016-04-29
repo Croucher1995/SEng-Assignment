@@ -8,7 +8,7 @@ public class EditionFilter implements Filter{
         ArrayList<Book> reqdBooks = new ArrayList<Book>();
         
         for (Book book : books) {     
-            if (book.getBookEdition() == Integer.parseInt(filter)) {
+            if (book.getBookEdition() == Integer.parseInt(filter)||"0".equals(filter)) {
                 reqdBooks.add(book);
             }
         }

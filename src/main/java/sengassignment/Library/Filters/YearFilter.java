@@ -8,7 +8,7 @@ public class YearFilter implements Filter{
         ArrayList<Book> reqdBooks = new ArrayList<Book>();
         
         for (Book book : books) {     
-            if (book.getBookYear() == Integer.parseInt(filter)) {
+            if (book.getBookYear() == Integer.parseInt(filter)||"0".equals(filter)) {
                 reqdBooks.add(book);
             }
         }
