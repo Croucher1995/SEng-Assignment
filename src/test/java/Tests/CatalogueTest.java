@@ -28,7 +28,7 @@ public class CatalogueTest {
     Filter year = new YearFilter();
     Filter edition = new EditionFilter();
     
-    Filter f1 = new AndFilters(title, "THE",author,"",genre,"Default",year,"0",edition,"0");
+    Filter f1 = new AndFilters(title, "the",author,"",genre,"Default",year,"0",edition,"0");
     Filter f2 = new AndFilters(title, "THE",author,"",genre,"Default",year,"2000",edition,"0");
     Filter f3 = new AndFilters(title, "THE",author,"",genre,"Fantasy",year,"0",edition,"0");
     
@@ -60,6 +60,17 @@ public class CatalogueTest {
     
     @Test
     public void testFilter1(){
-        assertTrue(c.searchForBooks(f2).size()==2);
+        assertTrue(c.searchForBooks(f1).contains(b4)&&c.searchForBooks(f1).contains(b2)&&c.searchForBooks(f1).contains(b3));  
     } 
+    
+    @Test
+    public void testFilter2(){
+        assertTrue(c.searchForBooks(f2).contains(b2)&&c.searchForBooks(f2).contains(b3));  
+    }
+    
+    
+    @Test
+    public void testFilter4(){
+        assertTrue(c.searchForBooks(f4).contains(b2)&&c.searchForBooks(f4).contains(b3)&&c.searchForBooks(f4).contains(b1)&&c.searchForBooks(f4).contains(b4));  
+    }
 }
