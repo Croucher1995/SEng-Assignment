@@ -8,7 +8,7 @@ public class AuthorFilter implements Filter{
         ArrayList<Book> reqdBooks = new ArrayList<Book>();
         
         for (Book book : books) {
-            if (book.getBookAuthor().contains(filter)) {
+            if (book.getBookAuthor().toLowerCase().contains(filter.toLowerCase())) {
                 reqdBooks.add(book);
             }
         }

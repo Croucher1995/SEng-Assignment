@@ -8,7 +8,7 @@ public class TitleFilter implements Filter{
         ArrayList<Book> reqdBooks = new ArrayList<Book>();
         
         for (Book book : books) {
-            if (book.getBookTitle().contains(filter)) {
+            if (book.getBookTitle().toLowerCase().contains(filter.toLowerCase())) {
                 reqdBooks.add(book);
             }
         }
