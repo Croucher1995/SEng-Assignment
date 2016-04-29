@@ -68,7 +68,7 @@ public class Library {
         u.loanCounter_dec();
         
         setCheckReturn(true);
-        System.out.println("Return sucessful");
+        System.out.println("Return sucessful.");
         
         if(b.numberOfObservers()!=0){
             User uNext = (User) b.getNextObserver();

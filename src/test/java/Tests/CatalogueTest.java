@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import sengassignment.Library.Book;
 import sengassignment.Library.Catalogue;
-import sengassignment.Library.Filter;
+import sengassignment.Library.Filters.Filter;
 import static sengassignment.Library.Genre.*;
 
 public class CatalogueTest {

@@ -1,4 +1,5 @@
 package sengassignment.Library;
+import sengassignment.Library.Filters.Filter;
 import java.util.ArrayList;
 import static sengassignment.Library.Genre.*;
 
@@ -40,6 +41,7 @@ public class Catalogue {
         }
         System.out.println(temp.size());
 
+        
         return temp;
     }
     
