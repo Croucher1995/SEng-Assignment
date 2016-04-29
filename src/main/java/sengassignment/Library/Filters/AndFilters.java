@@ -43,7 +43,5 @@ public class AndFilters implements Filter{
         ArrayList<Book> books5 = author.passFilter(books4, editionFilter);
         
         return books5;
-       
     }
-
 }
