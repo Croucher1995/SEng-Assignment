@@ -25,26 +25,26 @@ public class Library {
     }
     
     public void loanBookTo(Book b, User u){
-	if(u.loanCounter_check()){ //check if user has exceeded 3 books
-            if(!b.isBorrowed()){ //check if book is already on loan
-                if (!b.exceedsANumberOfWeeks(System.currentTimeMillis(),4)){// to check if it is overdue
+	if(u.loanCounter_check()){                                          //check if user has exceeded 3 books
+            if(!b.isBorrowed()){                                            //check if book is already on loan
+                if (!b.exceedsANumberOfWeeks(System.currentTimeMillis(),4)){//check if a book is overdue
                     Date d = new Date();
-                    b.borrowed();//set borrowed to true
-                    b.setLoanDate(d);//set the date of the loan
+                    b.borrowed();       //set borrowed to true
+                    b.setLoanDate(d);   //set the date of the loan
 
-                    b.setloanInfo(u);//save user info to the book being borrowed
+                    b.setloanInfo(u);   //save user info to the book being borrowed
                     u.loanCounter_inc();//increment the number of books the user has
                     
                     setCheckLoan(true); 
-                    System.out.println("Loan Successful");
+                    System.out.println("Loan of " + b.getBookTitle() + " to " + u.getUserName() + " was successful\n");
                 } 
                 else{
-                    System.out.println("Exceeded 4 weeks");
+                    System.out.println(u.getUserName() + " has one or more overdue books");
                     setCheckLoan(false); 
                 }
             }
             else{
-                System.out.println("Book already on loan.");
+                System.out.println("\n" + b.getBookTitle() + " is already on loan.");
                 b.attach(u);
                 b.notifyObserver(u);
                 setCheckLoan(false);
@@ -52,7 +52,7 @@ public class Library {
             
         }
         else{
-           System.out.println("User has exceeded maximum number of books.");
+           System.out.println(u.getUserName() + " has exceeded maximum number of books.");
            setCheckLoan(false);
         }
     }
@@ -67,7 +67,7 @@ public class Library {
         u.loanCounter_dec();
         
         setCheckReturn(true);
-        System.out.println("Return sucessful.");
+        System.out.println("\nReturn of " + b.getBookTitle() + " from " + u.getUserName() + " was sucessful.");
         
         if(b.numberOfObservers()!=0){
             User uNext = (User) b.getNextObserver();

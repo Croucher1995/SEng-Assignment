@@ -5,11 +5,11 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 import sengassignment.Library.Book;
 import sengassignment.Library.Library;
 import sengassignment.Library.User;
-import static org.junit.Assert.*;
 import static sengassignment.Library.Genre.Action;
 import static sengassignment.Library.Genre.Fantasy;
 import static sengassignment.Library.Genre.Fiction;
@@ -50,8 +50,8 @@ public class LibraryTest {
     
     @Test
     public void testaddUser() {
-    	assertTrue(l.numberofUsers()==4);
-        
+        assertTrue(l.numberofUsers()==4);
+    
         l.addUser(u);
         assertTrue(l.numberofUsers()==5);
     }
@@ -59,29 +59,28 @@ public class LibraryTest {
     @Test
     public void testremoveUser() {
         l.addUser(u);
-    	assertTrue(l.numberofUsers() == 5);
-    	
-    	l.removeUser(u);
-    	assertTrue(l.numberofUsers()==4);
-
-    }
-   
-    @Test
-    public void testloanBooktoOKUSER() {
-    	l.loanBookTo(b, u);
-    	assertTrue(l.getCheckLoan());
+        assertTrue(l.numberofUsers() == 5);
+    
+        l.removeUser(u);
+        assertTrue(l.numberofUsers()==4);
     }
     
     @Test
-    public void testloanBooktoUSERWITH3BOOKS(){     
+    public void testloanBooktoOKUSER() {
+        l.loanBookTo(b, u);
+        assertTrue(l.getCheckLoan());
+    }
+    
+    @Test
+    public void testloanBooktoUSERWITH3BOOKS(){
         l.loanBookTo(b1,u);
         l.loanBookTo(b2,u);
         l.loanBookTo(b3,u);
-        
+
         assertTrue(l.getCheckLoan());
-        
+
         l.loanBookTo(b4,u);
-        
+
         assertFalse(l.getCheckLoan());
     }
     
@@ -89,10 +88,12 @@ public class LibraryTest {
     public void testloanBooktoBOOKALREADYBORROWED(){
         l.loanBookTo(b,u1);
         assertTrue(l.getCheckLoan());
-        
+
         l.loanBookTo(b,u2);
         assertFalse(l.getCheckLoan());
     }
+    
+    
     
     @Test
     public void testloanBooktoEXCEEDED4WEEKS() throws InterruptedException{
@@ -121,18 +122,18 @@ public class LibraryTest {
         //l.loanBookTo(b2,u);
         //assertFalse(l.getCheckLoan());  
         
-    }
+   }
    
     @Test
     public void testReturnBook() {
-    	 l.loanBookTo(b,u);
-    	 l.returnBook(b);
-    	 assertTrue(l.getCheckReturn());  	 
+    	l.loanBookTo(b,u);
+    	l.returnBook(b);
+    	assertTrue(l.getCheckReturn());  	 
     }   
     
+    
     @Test
-    public void testLoantoManyUsers()
-    {
+    public void testLoantoManyUsers(){
     	l.loanBookTo(b, u1);
     	assertTrue(l.getCheckLoan());
     	l.loanBookTo(b, u2);
@@ -141,19 +142,19 @@ public class LibraryTest {
     	assertFalse(l.getCheckLoan());
     }
     
-    public void testReturntoNextUser()
-    {
-    	l.loanBookTo(b, u1);
-    	assertTrue(l.getCheckLoan());
-    	l.loanBookTo(b, u2);
-    	assertFalse(l.getCheckLoan());
-    	l.returnBook(b);
-    	assertTrue(l.getCheckLoan());
+    @Test
+    public void testReturntoNextUser(){
+        l.loanBookTo(b, u1);
+        assertTrue(l.getCheckLoan());
+        l.loanBookTo(b, u2);
+        assertFalse(l.getCheckLoan());
+
+        l.returnBook(b);
+        assertTrue(l.getCheckLoan());
     }
     
     @Test
-    public void testReturnWithMultipleinQueue()
-    {
+    public void testReturnWithMultipleinQueue(){
     	l.loanBookTo(b, u1);
     	assertTrue(l.getCheckLoan());
     	l.loanBookTo(b, u2);

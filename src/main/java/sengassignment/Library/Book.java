@@ -51,12 +51,10 @@ public class Book implements Observable{
         this.u = u;
     }
     
-   
     public User getLoanInfo(){
         return u;
     }
-    
-    
+       
     public int getBookID(){
         return this.count;
     }
@@ -157,7 +155,7 @@ public class Book implements Observable{
     }
     
     public void notifyObserver(Observer o){
-        System.out.println("Your position is: " + observers.indexOf(o));
+        o.update(observers.indexOf(o));
     }
     
     public int numberOfObservers(){
