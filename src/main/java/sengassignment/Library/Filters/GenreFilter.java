@@ -8,7 +8,7 @@ public class GenreFilter implements Filter{
         ArrayList<Book> reqdBooks = new ArrayList<Book>();
         
         for (Book book : books) {
-            if (book.getBookGenre().toString().contains(filter) || "Default".equals(filter)) {
+            if (book.getBookGenre().toString().toLowerCase().contains(filter.toLowerCase()) || "default".equals(filter.toLowerCase() )) {
                 reqdBooks.add(book);
             }
         }
