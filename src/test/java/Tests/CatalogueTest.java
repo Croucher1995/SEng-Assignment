@@ -2,10 +2,10 @@ package Tests;
 
 import org.junit.After;
 import org.junit.AfterClass;
-import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import static org.junit.Assert.assertTrue;
 
 import sengassignment.Library.Book;
 import sengassignment.Library.Catalogue;
@@ -24,7 +24,7 @@ public class CatalogueTest {
     Book b5 = new Book("THE HITCHHIKER'S GUIDE TO THE GALAXY", "DOUGLAS ADAMS", ScienceFiction, 1979, 3);
     Book b6 = new Book("NIGHTRISE", "ANTHONY HOROWITZ", Fiction, 2007, 2);
     Book b7 = new Book("OBLIVION", "ANTHONY HOROWITZ", Fiction, 2013, 1);
-    Book b8 = new Book("READY PLAYER ONE", "ERNEST CLINE", ScienceFiction, 2011, 2);
+    Book b8 = new Book("READY PLAYER ONE", "ERNEST CLINE", ScienceFiction, 2011, 1);
    
     
     Filter title = new TitleFilter();
@@ -41,7 +41,7 @@ public class CatalogueTest {
     Filter f4 = new AndFilters(title, "", author, "", genre, "SCIENCEFICTION", year, "0", edition, "1");
     
     Filter f5 = new OrFilters(title, "",author,"ROWLING",genre,"Fiction",year,"0",edition,"0");
-    Filter f6 = new OrFilters(title, "",author,"",genre,"Fiction",year,"2000",edition,"1");
+    Filter f6 = new OrFilters(title, "",author,"",genre,"Action",year,"2000",edition,"1");
 
     public CatalogueTest() {}
     
@@ -72,6 +72,7 @@ public class CatalogueTest {
                     &&c.getAllBooks().contains(b5)&&c.getAllBooks().contains(b6)&&c.getAllBooks().contains(b7));  
     }
     
+    
     @Test
     public void testOneFilter_1(){
         //Expecting all books by Anthony Horowitz
@@ -86,40 +87,27 @@ public class CatalogueTest {
     }
     
     @Test 
-    public void testTwoFilters_1(){
+    public void testTwoAndFilters_1(){
         //Expecting all Fiction books with 'night' in the title
         assertTrue(c.searchForBooks(f3).contains(b3)&&c.searchForBooks(f3).contains(b6));
     }
     
-    
-    /*    @Test
-    public void testTwoFilters_1(){
-    //Expecting all Fiction books with the word 'NIGHT' in the title
-    assertTrue(c.searchForBooks(f3).contains(b3)&&c.searchForBooks(f3).contains(b6));
+    @Test
+    public void testTwoAndFilters_2(){
+        //Expecting all 1st edition, ScienceFiction books
+        assertTrue(c.searchForBooks(f4).contains(b8));
     }
     
     @Test
-    public void testTwoFilters_2(){
-    //Expecting all 1st edition, ScienceFiction books
-    assertTrue(c.searchForBooks(f2).contains(b3)&&c.searchForBooks(f2).contains(b6));
-    }*/
-    /*
-    @Test
-    public void testTwoFilters_1(){
-    //Expecting all Fiction books with the word 'NIGHT' in the title
-    assertTrue(c.searchForBooks(f3).contains(b3)&&c.searchForBooks(f3).contains(b6));
+    public void testTwoOrFilters_1(){
+        //Expecting all Fiction books or books written by an author with Rowling in their name
+        assertTrue(c.searchForBooks(f5).contains(b1)&&c.searchForBooks(f5).contains(b3)
+                    &&c.searchForBooks(f5).contains(b6)&&c.searchForBooks(f5).contains(b7));
     }
     
     @Test
-    public void testTwoFilters_2(){
-    //Expecting all 1st edition, ScienceFiction books
-    assertTrue(c.searchForBooks(f2).contains(b3)&&c.searchForBooks(f2).contains(b6));
+    public void testTwoOrFilters_2(){
+        //Expecting all Action books or books published in the year 2000
+        assertTrue(c.searchForBooks(f6).contains(b3)&&c.searchForBooks(f6).contains(b4));
     }
-    */
-    /*
-    
-    @Test
-    public void testFilter4(){
-    assertTrue(c.searchForBooks(f4).contains(b2)&&c.searchForBooks(f4).contains(b3)&&c.searchForBooks(f4).contains(b1)&&c.searchForBooks(f4).contains(b4));
-    }*/
 }
