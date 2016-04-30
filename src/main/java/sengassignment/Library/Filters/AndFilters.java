@@ -15,9 +15,7 @@ public class AndFilters implements Filter{
     String genreFilter;
     String yearFilter;
     String editionFilter;
-    
-    public AndFilters(){}
-    
+        
     public AndFilters(Filter title, String titleFilter, Filter author, String authorFilter,
             Filter genre, String genreFilter, Filter year, String yearFilter, 
             Filter edition, String editionFilter){

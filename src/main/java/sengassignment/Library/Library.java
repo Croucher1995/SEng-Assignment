@@ -7,7 +7,6 @@ public class Library {
     private boolean checkLoan;
     private boolean checkReturn;
     
-    
     public Library(){
         checkLoan = false;
         checkReturn = false;
