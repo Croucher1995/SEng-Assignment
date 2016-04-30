@@ -84,10 +84,6 @@ public class Book implements Observable{
             
             case Action:
                 this.genre = Action;
-                break;
-
-            case Romance:
-                this.genre = Romance;
                 break;				
             
             default:

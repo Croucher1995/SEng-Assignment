@@ -36,7 +36,7 @@ public class Library {
                     u.loanCounter_inc();//increment the number of books the user has
                     
                     setCheckLoan(true); 
-                    System.out.println("Loan of " + b.getBookTitle() + " to " + u.getUserName() + " was successful\n");
+                    System.out.println("\nLoan of " + b.getBookTitle() + " to " + u.getUserName() + " was successful\n");
                 } 
                 else{
                     System.out.println(u.getUserName() + " has one or more overdue books");
